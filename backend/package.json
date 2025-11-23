@@ -11,6 +11,7 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
+    "lint": "eslint .",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi",
@@ -30,11 +31,15 @@
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.13.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
     "rimraf": "^6.1.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.18.1"
   },
   "engines": {
     "node": ">=20.0.0 <=24.x.x",

@@ -30,7 +30,7 @@ export interface MenuItem {
   name: string;
   description: string | StrapiTextBlock[]; // Can be string or block array
   price: number;
-  category: 'appetizer' | 'main' | 'dessert' | 'drink';
+  category: "appetizer" | "main" | "dessert" | "drink";
   featured: boolean;
   image: StrapiImageData | null;
   createdAt: string;
@@ -55,7 +55,7 @@ export interface GalleryImage {
   id: number;
   documentId: string;
   title: string;
-  category: 'food' | 'restaurant' | 'event';
+  category: "food" | "restaurant" | "event";
   order: number;
   image: StrapiImageData | null;
   createdAt: string;
@@ -85,7 +85,7 @@ export interface Reservation {
   time: string;
   guests: number;
   notes?: string;
-  status: 'pending' | 'confirmed' | 'cancelled';
+  status: "pending" | "confirmed" | "cancelled";
   createdAt: string;
   updatedAt: string;
 }
@@ -110,8 +110,8 @@ export interface RestaurantInfo {
   phone: string;
   email: string;
   address: string;
-  openingHours: any; // JSON field
-  socialMedia: any; // JSON field
+  openingHours: unknown; // JSON field
+  socialMedia: unknown; // JSON field
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -126,8 +126,7 @@ export interface ReservationFormData {
   name: string;
   email: string;
   phone: string;
-  date: string;
-  time: string;
+  datetime: string;
   guests: number;
   notes?: string;
 }

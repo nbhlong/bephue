@@ -78,7 +78,7 @@ export async function getFeaturedMenuItems(): Promise<MenuItemResponse> {
 /**
  * Get single menu item by ID
  */
-export async function getMenuItem(id: string): Promise<any> {
+export async function getMenuItem(id: string): Promise<unknown> {
   try {
     const path = `/menu-items/${id}?populate=*`;
     const response = await fetchAPI(path);
@@ -123,7 +123,7 @@ export async function getRestaurantInfo(): Promise<RestaurantInfoResponse | null
 /**
  * Submit a reservation
  */
-export async function submitReservation(data: ReservationFormData): Promise<any> {
+export async function submitReservation(data: ReservationFormData): Promise<unknown> {
   try {
     const path = "/reservations";
     const response = await fetchAPI(path, {
@@ -140,7 +140,7 @@ export async function submitReservation(data: ReservationFormData): Promise<any>
 /**
  * Submit a contact form
  */
-export async function submitContactForm(data: ContactFormData): Promise<any> {
+export async function submitContactForm(data: ContactFormData): Promise<unknown> {
   try {
     const path = "/contact-submissions";
     const response = await fetchAPI(path, {

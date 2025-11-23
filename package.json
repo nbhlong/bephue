@@ -12,7 +12,9 @@
     "start:frontend": "cd frontend && npm run start",
     "start:backend": "cd backend && npm run start",
     "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
-    "lint": "cd frontend && npm run lint"
+    "lint": "npm-run-all lint:frontend lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint"
   },
   "keywords": [
     "restaurant",
