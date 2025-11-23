@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "restaurant_infos",
   "info": {
     "singularName": "restaurant-info",

@@ -773,7 +773,7 @@ export interface ApiReservationReservation extends Struct.CollectionTypeSchema {
 }
 
 export interface ApiRestaurantInfoRestaurantInfo
-  extends Struct.CollectionTypeSchema {
+  extends Struct.SingleTypeSchema {
   collectionName: 'restaurant_infos';
   info: {
     displayName: 'Restaurant Info';

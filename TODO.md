@@ -6,110 +6,110 @@ Last Updated: 2025-11-22
 
 ## 🔥 High Priority (Must Have)
 
-### Phase 1: Backend Setup & Content ⏰ Est: 1-2 hours
+### Phase 1: Backend Setup & Content ⏰ Est: 1-2 hours ✅ COMPLETED
 
-- [ ] **Set up Strapi CMS**
+- [x] **Set up Strapi CMS**
 
   - [x] Start backend server (`npm run dev:backend`)
-  - [x] Create admin account at http://localhost:1337/admin
-  - [ ] Configure all content types (see details below)
-  - [ ] Set API permissions for public access
+  - [x] Create admin account at http://localhost:1338/admin
+  - [x] Configure all content types (see details below)
+  - [x] Set API permissions for public access
 
-- [ ] **Create Strapi Content Types** (Content-Type Builder)
+- [x] **Create Strapi Content Types** (Content-Type Builder)
 
   **Step 1: Menu Item Collection** 🍜
-  - [ ] Create collection type `menu-item`
-  - [ ] Add field: `name` (Text, Short text, Required)
-  - [ ] Add field: `description` (Rich text, Required)
-  - [ ] Add field: `price` (Number, Decimal, Required)
-  - [ ] Add field: `category` (Enumeration, Required) - Values: `appetizer`, `main`, `dessert`, `drink`
-  - [ ] Add field: `image` (Media, Single media, Required)
-  - [ ] Add field: `featured` (Boolean, default: false)
-  - [ ] Save & restart
+  - [x] Create collection type `menu-item`
+  - [x] Add field: `name` (Text, Short text, Required)
+  - [x] Add field: `description` (Rich text, Required)
+  - [x] Add field: `price` (Number, Decimal, Required)
+  - [x] Add field: `category` (Enumeration, Required) - Values: `appetizer`, `main`, `dessert`, `drink`
+  - [x] Add field: `image` (Media, Single media, Required)
+  - [x] Add field: `featured` (Boolean, default: false)
+  - [x] Save & restart
 
   **Step 2: Gallery Image Collection** 🖼️
-  - [ ] Create collection type `gallery-image`
-  - [ ] Add field: `title` (Text, Short text, Required)
-  - [ ] Add field: `image` (Media, Single media, Required)
-  - [ ] Add field: `category` (Enumeration, Required) - Values: `food`, `restaurant`, `event`
-  - [ ] Add field: `order` (Number, Integer, default: 0)
-  - [ ] Save & restart
+  - [x] Create collection type `gallery-image`
+  - [x] Add field: `title` (Text, Short text, Required)
+  - [x] Add field: `image` (Media, Single media, Required)
+  - [x] Add field: `category` (Enumeration, Required) - Values: `food`, `restaurant`, `event`
+  - [x] Add field: `order` (Number, Integer, default: 0)
+  - [x] Save & restart
 
   **Step 3: Reservation Collection** 📅
-  - [ ] Create collection type `reservation`
-  - [ ] Add field: `name` (Text, Short text, Required)
-  - [ ] Add field: `email` (Email, Required)
-  - [ ] Add field: `phone` (Text, Short text, Required)
-  - [ ] Add field: `date` (Date, Required)
-  - [ ] Add field: `time` (Text, Short text, Required)
-  - [ ] Add field: `guests` (Number, Integer, Required)
-  - [ ] Add field: `notes` (Text, Long text)
-  - [ ] Add field: `status` (Enumeration, Required) - Values: `pending`, `confirmed`, `cancelled` (default: `pending`)
-  - [ ] Save & restart
+  - [x] Create collection type `reservation`
+  - [x] Add field: `name` (Text, Short text, Required)
+  - [x] Add field: `email` (Email, Required)
+  - [x] Add field: `phone` (Text, Short text, Required)
+  - [x] Add field: `date` (Date, Required)
+  - [x] Add field: `time` (Text, Short text, Required)
+  - [x] Add field: `guests` (Number, Integer, Required)
+  - [x] Add field: `notes` (Text, Long text)
+  - [x] Add field: `status` (Enumeration, Required) - Values: `pending`, `confirmed`, `cancelled` (default: `pending`)
+  - [x] Save & restart
 
   **Step 4: Contact Submission Collection** 📞
-  - [ ] Create collection type `contact-submission`
-  - [ ] Add field: `name` (Text, Short text, Required)
-  - [ ] Add field: `email` (Email, Required)
-  - [ ] Add field: `phone` (Text, Short text)
-  - [ ] Add field: `message` (Rich text, Required)
-  - [ ] Save & restart
+  - [x] Create collection type `contact-submission`
+  - [x] Add field: `name` (Text, Short text, Required)
+  - [x] Add field: `email` (Email, Required)
+  - [x] Add field: `phone` (Text, Short text)
+  - [x] Add field: `message` (Rich text, Required)
+  - [x] Save & restart
 
   **Step 5: Restaurant Info Single Type** ℹ️
-  - [ ] Create single type `restaurant-info`
-  - [ ] Add field: `name` (Text, Short text, Required)
-  - [ ] Add field: `description` (Rich text, Required)
-  - [ ] Add field: `phone` (Text, Short text, Required)
-  - [ ] Add field: `email` (Email, Required)
-  - [ ] Add field: `address` (Text, Long text, Required)
-  - [ ] Add field: `openingHours` (JSON)
-  - [ ] Add field: `socialMedia` (JSON)
-  - [ ] Save & restart
+  - [x] Create single type `restaurant-info`
+  - [x] Add field: `name` (Text, Short text, Required)
+  - [x] Add field: `description` (Rich text, Required)
+  - [x] Add field: `phone` (Text, Short text, Required)
+  - [x] Add field: `email` (Email, Required)
+  - [x] Add field: `address` (Text, Long text, Required)
+  - [x] Add field: `openingHours` (JSON)
+  - [x] Add field: `socialMedia` (JSON)
+  - [x] Save & restart
 
-- [ ] **Configure API Permissions** (Settings → Roles → Public)
+- [x] **Configure API Permissions** (Settings → Roles → Public)
 
-  - [ ] Menu-item: Enable `find`, `findOne`
-  - [ ] Gallery-image: Enable `find`, `findOne`
-  - [ ] Reservation: Enable `create`
-  - [ ] Contact-submission: Enable `create`
-  - [ ] Restaurant-info: Enable `find`
-  - [ ] Upload: Enable `upload`
-  - [ ] Click Save
+  - [x] Menu-item: Enable `find`, `findOne`
+  - [x] Gallery-image: Enable `find`, `findOne`
+  - [x] Reservation: Enable `create`
+  - [x] Contact-submission: Enable `create`
+  - [x] Restaurant-info: Enable `find`
+  - [x] Upload: Enable `upload`
+  - [x] Click Save
 
-- [ ] **Add Sample Content** (Content Manager)
+- [x] **Add Sample Content** (Content Manager)
 
   **Menu Items** (Add 10 items minimum):
-  - [ ] Bánh bèo - Steamed rice cakes - 45,000đ - appetizer
-  - [ ] Nem lụi - Grilled pork skewers - 55,000đ - appetizer
-  - [ ] Bún bò Huế - Spicy beef noodle soup - 65,000đ - main (featured)
-  - [ ] Cơm hến - Clam rice - 50,000đ - main
-  - [ ] Bánh khoái - Crispy pancake - 60,000đ - main (featured)
-  - [ ] Bún thịt nướng - Grilled pork vermicelli - 55,000đ - main
-  - [ ] Chè Huế - Mixed sweet soup - 35,000đ - dessert
-  - [ ] Bánh ít lá gai - Glutinous rice dumplings - 40,000đ - dessert
-  - [ ] Trà Huế - Traditional Hue tea - 25,000đ - drink
-  - [ ] Nước mía - Sugarcane juice - 20,000đ - drink
+  - [x] Bánh bèo - Steamed rice cakes - 45,000đ - appetizer
+  - [x] Nem lụi - Grilled pork skewers - 55,000đ - appetizer
+  - [x] Bún bò Huế - Spicy beef noodle soup - 65,000đ - main (featured)
+  - [x] Cơm hến - Clam rice - 50,000đ - main
+  - [x] Bánh khoái - Crispy pancake - 60,000đ - main (featured)
+  - [x] Bún thịt nướng - Grilled pork vermicelli - 55,000đ - main
+  - [x] Chè Huế - Mixed sweet soup - 35,000đ - dessert
+  - [x] Bánh ít lá gai - Glutinous rice dumplings - 40,000đ - dessert
+  - [x] Trà Huế - Traditional Hue tea - 25,000đ - drink
+  - [x] Nước mía - Sugarcane juice - 20,000đ - drink
 
   **Gallery Images** (Upload 8-10 images):
-  - [ ] Upload food images (5-6 items) - category: food
-  - [ ] Upload restaurant interior images (2-3 items) - category: restaurant
-  - [ ] Upload event images (1-2 items) - category: event
-  - [ ] Set order numbers (1, 2, 3, etc.)
+  - [x] Upload food images (5-6 items) - category: food
+  - [x] Upload restaurant interior images (2-3 items) - category: restaurant
+  - [x] Upload event images (1-2 items) - category: event
+  - [x] Set order numbers (1, 2, 3, etc.)
 
   **Restaurant Info**:
-  - [ ] Name: "BepHue"
-  - [ ] Description: "Authentic Hue cuisine in the heart of Ho Chi Minh City..."
-  - [ ] Phone: "+84 28 1234 5678"
-  - [ ] Email: "contact@bephue.vn"
-  - [ ] Address: "123 Nguyen Hue Street, District 1, HCMC"
-  - [ ] Opening Hours (JSON): Add business hours for each day
-  - [ ] Social Media (JSON): Add Facebook, Instagram, Zalo links
+  - [x] Name: "BepHue"
+  - [x] Description: "Authentic Hue cuisine in the heart of Ho Chi Minh City..."
+  - [x] Phone: "+84 28 1234 5678"
+  - [x] Email: "contact@bephue.vn"
+  - [x] Address: "123 Nguyen Hue Street, District 1, HCMC"
+  - [x] Opening Hours (JSON): Add business hours for each day
+  - [x] Social Media (JSON): Add Facebook, Instagram, Zalo links
 
-- [ ] **Test API Endpoints**
-  - [ ] Test: http://localhost:1337/api/menu-items?populate=*
-  - [ ] Test: http://localhost:1337/api/gallery-images?populate=*
-  - [ ] Test: http://localhost:1337/api/restaurant-info?populate=*
-  - [ ] Verify all JSON responses return data correctly
+- [x] **Test API Endpoints**
+  - [x] Test: http://localhost:1338/api/menu-items?populate=*
+  - [x] Test: http://localhost:1338/api/gallery-images?populate=*
+  - [x] Test: http://localhost:1338/api/restaurant-info?populate=*
+  - [x] Verify all JSON responses return data correctly
 
 ### Phase 2: Core Pages ⏰ Est: 3-4 hours
 
@@ -385,6 +385,7 @@ Last Updated: 2025-11-22
 
 ## ✅ Completed Tasks
 
+**Phase 0: Initial Setup**
 - [x] Initialize Next.js frontend
 - [x] Initialize Strapi backend
 - [x] Set up monorepo structure
@@ -406,21 +407,32 @@ Last Updated: 2025-11-22
 - [x] Write DOCKER-DEPLOYMENT.md guide
 - [x] Create project documentation
 
+**Phase 1: Backend Setup & Content** ✅
+- [x] Start Strapi backend server (port 1338)
+- [x] Create admin account
+- [x] Create 5 content types (menu-item, gallery-image, reservation, contact-submission, restaurant-info)
+- [x] Configure all fields for each content type
+- [x] Set API permissions for public access
+- [x] Add 10 sample menu items (appetizer, main, dessert, drink categories)
+- [x] Upload gallery images with categories
+- [x] Fill in restaurant info with contact details and hours
+- [x] Test all API endpoints successfully
+
 ---
 
 ## 📊 Progress Tracking
 
-**Overall Completion:** ~25% ✅✅⬜⬜
+**Overall Completion:** ~35% ✅✅✅⬜
 
-| Phase                           | Status  | Progress        |
-| ------------------------------- | ------- | --------------- |
-| Phase 1: Setup & Infrastructure | ✅ Done | 100%            |
-| Phase 2: Backend & Content      | ⬜ Todo | 0%              |
-| Phase 3: Core Pages             | ⬜ Todo | 20% (Home done) |
-| Phase 4: UI/UX Enhancements     | ⬜ Todo | 0%              |
-| Phase 5: Forms & Interactivity  | ⬜ Todo | 0%              |
-| Phase 6: Advanced Features      | ⬜ Todo | 0%              |
-| Phase 7: Testing & Deployment   | ⬜ Todo | 0%              |
+| Phase                           | Status      | Progress        |
+| ------------------------------- | ----------- | --------------- |
+| Phase 0: Setup & Infrastructure | ✅ Done     | 100%            |
+| Phase 1: Backend & Content      | ✅ Done     | 100%            |
+| Phase 2: Core Pages             | 🔄 In Progress | 20% (Home done) |
+| Phase 3: UI/UX Enhancements     | ⬜ Todo     | 0%              |
+| Phase 4: Forms & Interactivity  | ⬜ Todo     | 0%              |
+| Phase 5: Advanced Features      | ⬜ Todo     | 0%              |
+| Phase 6: Testing & Deployment   | ⬜ Todo     | 0%              |
 
 ---
 
@@ -461,6 +473,6 @@ Last Updated: 2025-11-22
 ---
 
 **Last Updated:** 2025-11-23
-**Current Focus:** Phase 1 - Backend Setup (Content Types & Sample Data)
-**Current Status:** ✅ Backend server running, ✅ Admin account created
-**Next Milestone:** Complete all content types → Add sample data → Test APIs → Build Menu page
+**Current Focus:** Phase 2 - Core Pages (Menu, Gallery, Contact, Reservation)
+**Current Status:** ✅ Phase 1 Complete - Backend ready with all content types and sample data!
+**Next Milestone:** Build Menu page → Gallery page → Contact & Reservation forms
