@@ -15,9 +15,6 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text"
-    },
     "phone": {
       "type": "string"
     },
@@ -32,6 +29,9 @@
     },
     "socialMedia": {
       "type": "json"
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }

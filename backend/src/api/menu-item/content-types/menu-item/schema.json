@@ -15,10 +15,6 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
-      "required": false
-    },
     "price": {
       "type": "decimal",
       "required": true
@@ -47,6 +43,9 @@
       "type": "boolean",
       "required": false,
       "default": false
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }

@@ -4,9 +4,9 @@ import {
   RestaurantInfoResponse,
   ReservationFormData,
   ContactFormData,
-} from '@/types';
+} from "@/types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1338";
 
 /**
  * Fetch data from Strapi API
@@ -14,7 +14,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:1337';
 async function fetchAPI(path: string, options: RequestInit = {}) {
   const defaultOptions: RequestInit = {
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   };
 
@@ -39,7 +39,7 @@ async function fetchAPI(path: string, options: RequestInit = {}) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching from Strapi:', error);
+    console.error("Error fetching from Strapi:", error);
     throw error;
   }
 }
@@ -49,14 +49,14 @@ async function fetchAPI(path: string, options: RequestInit = {}) {
  */
 export async function getMenuItems(category?: string): Promise<MenuItemResponse> {
   try {
-    let path = '/menu-items?populate=*';
+    let path = "/menu-items?populate=*";
     if (category) {
       path += `&filters[category][$eq]=${category}`;
     }
     const response = await fetchAPI(path);
     return response;
   } catch (error) {
-    console.error('Error fetching menu items:', error);
+    console.error("Error fetching menu items:", error);
     return { data: [], meta: { pagination: { page: 1, pageSize: 25, pageCount: 0, total: 0 } } };
   }
 }
@@ -66,11 +66,11 @@ export async function getMenuItems(category?: string): Promise<MenuItemResponse>
  */
 export async function getFeaturedMenuItems(): Promise<MenuItemResponse> {
   try {
-    const path = '/menu-items?populate=*&filters[featured][$eq]=true';
+    const path = "/menu-items?populate=*&filters[featured][$eq]=true";
     const response = await fetchAPI(path);
     return response;
   } catch (error) {
-    console.error('Error fetching featured menu items:', error);
+    console.error("Error fetching featured menu items:", error);
     return { data: [], meta: { pagination: { page: 1, pageSize: 25, pageCount: 0, total: 0 } } };
   }
 }
@@ -94,14 +94,14 @@ export async function getMenuItem(id: string): Promise<any> {
  */
 export async function getGalleryImages(category?: string): Promise<GalleryImageResponse> {
   try {
-    let path = '/gallery-images?populate=*&sort=order:asc';
+    let path = "/gallery-images?populate=*&sort=order:asc";
     if (category) {
       path += `&filters[category][$eq]=${category}`;
     }
     const response = await fetchAPI(path);
     return response;
   } catch (error) {
-    console.error('Error fetching gallery images:', error);
+    console.error("Error fetching gallery images:", error);
     return { data: [], meta: { pagination: { page: 1, pageSize: 25, pageCount: 0, total: 0 } } };
   }
 }
@@ -111,11 +111,11 @@ export async function getGalleryImages(category?: string): Promise<GalleryImageR
  */
 export async function getRestaurantInfo(): Promise<RestaurantInfoResponse | null> {
   try {
-    const path = '/restaurant-info';
+    const path = "/restaurant-info";
     const response = await fetchAPI(path);
     return response;
   } catch (error) {
-    console.error('Error fetching restaurant info:', error);
+    console.error("Error fetching restaurant info:", error);
     return null;
   }
 }
@@ -125,14 +125,14 @@ export async function getRestaurantInfo(): Promise<RestaurantInfoResponse | null
  */
 export async function submitReservation(data: ReservationFormData): Promise<any> {
   try {
-    const path = '/reservations';
+    const path = "/reservations";
     const response = await fetchAPI(path, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({ data }),
     });
     return response;
   } catch (error) {
-    console.error('Error submitting reservation:', error);
+    console.error("Error submitting reservation:", error);
     throw error;
   }
 }
@@ -142,14 +142,14 @@ export async function submitReservation(data: ReservationFormData): Promise<any>
  */
 export async function submitContactForm(data: ContactFormData): Promise<any> {
   try {
-    const path = '/contact-submissions';
+    const path = "/contact-submissions";
     const response = await fetchAPI(path, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({ data }),
     });
     return response;
   } catch (error) {
-    console.error('Error submitting contact form:', error);
+    console.error("Error submitting contact form:", error);
     throw error;
   }
 }
@@ -158,7 +158,25 @@ export async function submitContactForm(data: ContactFormData): Promise<any> {
  * Get image URL from Strapi
  */
 export function getStrapiImageUrl(url: string): string {
-  if (!url) return '';
-  if (url.startsWith('http')) return url;
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
   return `${API_URL}${url}`;
+}
+
+/**
+ * Convert Strapi block content to plain text
+ */
+export function strapiBlocksToText(blocks: string | unknown[]): string {
+  if (typeof blocks === "string") return blocks;
+  if (!Array.isArray(blocks)) return "";
+
+  return blocks
+    .map((block: unknown) => {
+      const b = block as { children?: Array<{ text?: string }> };
+      if (b.children && Array.isArray(b.children)) {
+        return b.children.map((child) => child.text || "").join("");
+      }
+      return "";
+    })
+    .join("\n");
 }

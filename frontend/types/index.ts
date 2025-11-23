@@ -1,4 +1,4 @@
-// Strapi API Types
+// Strapi API Types (v5)
 export interface StrapiImage {
   id: number;
   url: string;
@@ -11,27 +11,35 @@ export interface StrapiImageData {
   data: {
     id: number;
     attributes: StrapiImage;
-  };
+  } | null;
 }
 
-// Menu Item
+// Strapi Block Content (Rich Text)
+export interface StrapiTextBlock {
+  type: string;
+  children: Array<{
+    type: string;
+    text: string;
+  }>;
+}
+
+// Menu Item (Strapi v5 - flattened structure)
 export interface MenuItem {
   id: number;
+  documentId: string;
   name: string;
-  description: string;
+  description: string | StrapiTextBlock[]; // Can be string or block array
   price: number;
   category: 'appetizer' | 'main' | 'dessert' | 'drink';
   featured: boolean;
-  image: StrapiImageData;
+  image: StrapiImageData | null;
   createdAt: string;
   updatedAt: string;
+  publishedAt: string;
 }
 
 export interface MenuItemResponse {
-  data: {
-    id: number;
-    attributes: MenuItem;
-  }[];
+  data: MenuItem[];
   meta: {
     pagination: {
       page: number;
@@ -42,22 +50,21 @@ export interface MenuItemResponse {
   };
 }
 
-// Gallery Image
+// Gallery Image (Strapi v5)
 export interface GalleryImage {
   id: number;
+  documentId: string;
   title: string;
   category: 'food' | 'restaurant' | 'event';
   order: number;
-  image: StrapiImageData;
+  image: StrapiImageData | null;
   createdAt: string;
   updatedAt: string;
+  publishedAt: string;
 }
 
 export interface GalleryImageResponse {
-  data: {
-    id: number;
-    attributes: GalleryImage;
-  }[];
+  data: GalleryImage[];
   meta: {
     pagination: {
       page: number;
@@ -94,33 +101,24 @@ export interface ContactSubmission {
   updatedAt: string;
 }
 
-// Restaurant Info (Single Type)
+// Restaurant Info (Single Type - Strapi v5)
 export interface RestaurantInfo {
+  id: number;
+  documentId: string;
   name: string;
-  description: string;
+  description: string | StrapiTextBlock[];
   phone: string;
   email: string;
   address: string;
-  openingHours: {
-    [key: string]: {
-      open: string;
-      close: string;
-      closed?: boolean;
-    };
-  };
-  socialMedia: {
-    facebook?: string;
-    instagram?: string;
-    youtube?: string;
-    tiktok?: string;
-  };
+  openingHours: any; // JSON field
+  socialMedia: any; // JSON field
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
 export interface RestaurantInfoResponse {
-  data: {
-    id: number;
-    attributes: RestaurantInfo;
-  };
+  data: RestaurantInfo;
 }
 
 // Form Types
