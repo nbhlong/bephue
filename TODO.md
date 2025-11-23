@@ -113,24 +113,27 @@ Last Updated: 2025-11-22
 
 ### Phase 2: Core Pages ⏰ Est: 3-4 hours
 
-- [ ] **Menu Page** (`/menu`) 🍜 CRITICAL
+- [x] **Menu Page** (`/menu`) 🍜 CRITICAL ✅
 
-  - [ ] Create menu page layout
-  - [ ] Fetch menu items from Strapi API
-  - [ ] Display items by category (tabs or sections)
-  - [ ] Add category filtering
-  - [ ] Show dish images, names, descriptions, prices
-  - [ ] Make responsive (mobile/tablet/desktop)
-  - [ ] Add "Featured" section at top
+  - [x] Create menu page layout
+  - [x] Fetch menu items from Strapi API
+  - [x] Display items by category (tabs or sections)
+  - [x] Add category filtering
+  - [x] Show dish images, names, descriptions, prices
+  - [x] Make responsive (mobile/tablet/desktop)
+  - [x] Add "Featured" section at top
 
-- [ ] **Gallery Page** (`/gallery`) 🖼️
+- [x] **Gallery Page** (`/gallery`) 🖼️ ✅
 
-  - [ ] Create gallery grid layout
-  - [ ] Fetch images from Strapi
-  - [ ] Add category filter (food, restaurant, event)
-  - [ ] Implement image lightbox/modal
-  - [ ] Add lazy loading
-  - [ ] Make responsive grid
+  - [x] Create gallery grid layout
+  - [x] Fetch images from Strapi
+  - [x] Add category filter (food, restaurant, event)
+  - [x] Implement image lightbox/modal
+  - [x] Add lazy loading (Next.js Image automatic)
+  - [x] Make responsive grid
+  - [x] Keyboard navigation (Arrow keys, Escape)
+  - [x] Previous/Next buttons in lightbox
+  - [x] Image counter in lightbox
 
 - [ ] **About Page** (`/about`) 📖
 
@@ -167,9 +170,9 @@ Last Updated: 2025-11-22
 - [ ] **Create Reusable UI Components**
 
   - [ ] Button component (primary, secondary, outline variants)
-  - [ ] Card component (menu card, gallery card)
+  - [x] Card component (menu card, gallery card) ✅
   - [ ] Input component (text, email, tel, textarea)
-  - [ ] Modal/Dialog component
+  - [x] Modal/Dialog component ✅
   - [ ] Loading spinner component
   - [ ] Toast/notification component
 
@@ -206,9 +209,9 @@ Last Updated: 2025-11-22
   - [ ] "Add to favorites" (client-side only)
   - [ ] Print menu option
 
-- [ ] **Gallery Features**
-  - [ ] Lightbox navigation (prev/next)
-  - [ ] Zoom in/out
+- [x] **Gallery Features** ✅
+  - [x] Lightbox navigation (prev/next)
+  - [ ] Zoom in/out (optional enhancement)
   - [ ] Share images (optional)
   - [ ] Download option (optional)
 
@@ -418,21 +421,28 @@ Last Updated: 2025-11-22
 - [x] Fill in restaurant info with contact details and hours
 - [x] Test all API endpoints successfully
 
+**Phase 2: Core Pages** 🔄 40% Complete
+- [x] Menu Page - Full-featured with category filtering, featured section
+- [x] Gallery Page - Grid layout with lightbox, keyboard navigation
+- [ ] About Page - Restaurant story and info
+- [ ] Contact Page - Contact form with validation
+- [ ] Reservation Page - Booking form with date/time picker
+
 ---
 
 ## 📊 Progress Tracking
 
-**Overall Completion:** ~35% ✅✅✅⬜
+**Overall Completion:** ~45% ✅✅✅✅⬜
 
-| Phase                           | Status      | Progress        |
-| ------------------------------- | ----------- | --------------- |
-| Phase 0: Setup & Infrastructure | ✅ Done     | 100%            |
-| Phase 1: Backend & Content      | ✅ Done     | 100%            |
-| Phase 2: Core Pages             | 🔄 In Progress | 20% (Home done) |
-| Phase 3: UI/UX Enhancements     | ⬜ Todo     | 0%              |
-| Phase 4: Forms & Interactivity  | ⬜ Todo     | 0%              |
-| Phase 5: Advanced Features      | ⬜ Todo     | 0%              |
-| Phase 6: Testing & Deployment   | ⬜ Todo     | 0%              |
+| Phase                           | Status         | Progress                        |
+| ------------------------------- | -------------- | ------------------------------- |
+| Phase 0: Setup & Infrastructure | ✅ Done        | 100%                            |
+| Phase 1: Backend & Content      | ✅ Done        | 100%                            |
+| Phase 2: Core Pages             | 🔄 In Progress | 40% (Home, Menu, Gallery done)  |
+| Phase 3: UI/UX Enhancements     | 🔄 Started     | 15% (Modal, Card done)          |
+| Phase 4: Forms & Interactivity  | ⬜ Todo        | 0%                              |
+| Phase 5: Advanced Features      | ⬜ Todo        | 0%                              |
+| Phase 6: Testing & Deployment   | ⬜ Todo        | 0%                              |
 
 ---
 
@@ -473,6 +483,6 @@ Last Updated: 2025-11-22
 ---
 
 **Last Updated:** 2025-11-23
-**Current Focus:** Phase 2 - Core Pages (Menu, Gallery, Contact, Reservation)
-**Current Status:** ✅ Phase 1 Complete - Backend ready with all content types and sample data!
-**Next Milestone:** Build Menu page → Gallery page → Contact & Reservation forms
+**Current Focus:** Phase 2 - Core Pages (About, Contact, Reservation)
+**Current Status:** ✅ Menu & Gallery pages complete! ✅ Modal component created!
+**Next Milestone:** About page → Contact page → Reservation page → Phase 2 Complete!
