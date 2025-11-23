@@ -10,24 +10,106 @@ Last Updated: 2025-11-22
 
 - [ ] **Set up Strapi CMS**
 
-  - [ ] Start backend server (`npm run dev:backend`)
-  - [ ] Create admin account at http://localhost:1337/admin
+  - [x] Start backend server (`npm run dev:backend`)
+  - [x] Create admin account at http://localhost:1337/admin
   - [ ] Configure all content types (see details below)
   - [ ] Set API permissions for public access
 
-- [ ] **Create Strapi Content Types**
+- [ ] **Create Strapi Content Types** (Content-Type Builder)
 
-  - [ ] `menu-item` collection (name, description, price, category, image, featured)
-  - [ ] `gallery-image` collection (title, image, category, order)
-  - [ ] `reservation` collection (name, email, phone, date, time, guests, notes, status)
-  - [ ] `contact-submission` collection (name, email, phone, message)
-  - [ ] `restaurant-info` single type (name, description, contact, hours, social)
+  **Step 1: Menu Item Collection** 🍜
+  - [ ] Create collection type `menu-item`
+  - [ ] Add field: `name` (Text, Short text, Required)
+  - [ ] Add field: `description` (Rich text, Required)
+  - [ ] Add field: `price` (Number, Decimal, Required)
+  - [ ] Add field: `category` (Enumeration, Required) - Values: `appetizer`, `main`, `dessert`, `drink`
+  - [ ] Add field: `image` (Media, Single media, Required)
+  - [ ] Add field: `featured` (Boolean, default: false)
+  - [ ] Save & restart
 
-- [ ] **Add Sample Content**
-  - [ ] Add 10-15 menu items (cover all categories: appetizer, main, dessert, drink)
-  - [ ] Upload 8-10 gallery images
-  - [ ] Fill in restaurant info (contact, hours, address)
-  - [ ] Test API endpoints work
+  **Step 2: Gallery Image Collection** 🖼️
+  - [ ] Create collection type `gallery-image`
+  - [ ] Add field: `title` (Text, Short text, Required)
+  - [ ] Add field: `image` (Media, Single media, Required)
+  - [ ] Add field: `category` (Enumeration, Required) - Values: `food`, `restaurant`, `event`
+  - [ ] Add field: `order` (Number, Integer, default: 0)
+  - [ ] Save & restart
+
+  **Step 3: Reservation Collection** 📅
+  - [ ] Create collection type `reservation`
+  - [ ] Add field: `name` (Text, Short text, Required)
+  - [ ] Add field: `email` (Email, Required)
+  - [ ] Add field: `phone` (Text, Short text, Required)
+  - [ ] Add field: `date` (Date, Required)
+  - [ ] Add field: `time` (Text, Short text, Required)
+  - [ ] Add field: `guests` (Number, Integer, Required)
+  - [ ] Add field: `notes` (Text, Long text)
+  - [ ] Add field: `status` (Enumeration, Required) - Values: `pending`, `confirmed`, `cancelled` (default: `pending`)
+  - [ ] Save & restart
+
+  **Step 4: Contact Submission Collection** 📞
+  - [ ] Create collection type `contact-submission`
+  - [ ] Add field: `name` (Text, Short text, Required)
+  - [ ] Add field: `email` (Email, Required)
+  - [ ] Add field: `phone` (Text, Short text)
+  - [ ] Add field: `message` (Rich text, Required)
+  - [ ] Save & restart
+
+  **Step 5: Restaurant Info Single Type** ℹ️
+  - [ ] Create single type `restaurant-info`
+  - [ ] Add field: `name` (Text, Short text, Required)
+  - [ ] Add field: `description` (Rich text, Required)
+  - [ ] Add field: `phone` (Text, Short text, Required)
+  - [ ] Add field: `email` (Email, Required)
+  - [ ] Add field: `address` (Text, Long text, Required)
+  - [ ] Add field: `openingHours` (JSON)
+  - [ ] Add field: `socialMedia` (JSON)
+  - [ ] Save & restart
+
+- [ ] **Configure API Permissions** (Settings → Roles → Public)
+
+  - [ ] Menu-item: Enable `find`, `findOne`
+  - [ ] Gallery-image: Enable `find`, `findOne`
+  - [ ] Reservation: Enable `create`
+  - [ ] Contact-submission: Enable `create`
+  - [ ] Restaurant-info: Enable `find`
+  - [ ] Upload: Enable `upload`
+  - [ ] Click Save
+
+- [ ] **Add Sample Content** (Content Manager)
+
+  **Menu Items** (Add 10 items minimum):
+  - [ ] Bánh bèo - Steamed rice cakes - 45,000đ - appetizer
+  - [ ] Nem lụi - Grilled pork skewers - 55,000đ - appetizer
+  - [ ] Bún bò Huế - Spicy beef noodle soup - 65,000đ - main (featured)
+  - [ ] Cơm hến - Clam rice - 50,000đ - main
+  - [ ] Bánh khoái - Crispy pancake - 60,000đ - main (featured)
+  - [ ] Bún thịt nướng - Grilled pork vermicelli - 55,000đ - main
+  - [ ] Chè Huế - Mixed sweet soup - 35,000đ - dessert
+  - [ ] Bánh ít lá gai - Glutinous rice dumplings - 40,000đ - dessert
+  - [ ] Trà Huế - Traditional Hue tea - 25,000đ - drink
+  - [ ] Nước mía - Sugarcane juice - 20,000đ - drink
+
+  **Gallery Images** (Upload 8-10 images):
+  - [ ] Upload food images (5-6 items) - category: food
+  - [ ] Upload restaurant interior images (2-3 items) - category: restaurant
+  - [ ] Upload event images (1-2 items) - category: event
+  - [ ] Set order numbers (1, 2, 3, etc.)
+
+  **Restaurant Info**:
+  - [ ] Name: "BepHue"
+  - [ ] Description: "Authentic Hue cuisine in the heart of Ho Chi Minh City..."
+  - [ ] Phone: "+84 28 1234 5678"
+  - [ ] Email: "contact@bephue.vn"
+  - [ ] Address: "123 Nguyen Hue Street, District 1, HCMC"
+  - [ ] Opening Hours (JSON): Add business hours for each day
+  - [ ] Social Media (JSON): Add Facebook, Instagram, Zalo links
+
+- [ ] **Test API Endpoints**
+  - [ ] Test: http://localhost:1337/api/menu-items?populate=*
+  - [ ] Test: http://localhost:1337/api/gallery-images?populate=*
+  - [ ] Test: http://localhost:1337/api/restaurant-info?populate=*
+  - [ ] Verify all JSON responses return data correctly
 
 ### Phase 2: Core Pages ⏰ Est: 3-4 hours
 
@@ -378,6 +460,7 @@ Last Updated: 2025-11-22
 
 ---
 
-**Last Updated:** 2025-11-22
-**Current Focus:** Phase 1 - Backend Setup
-**Next Milestone:** Working menu page with real data
+**Last Updated:** 2025-11-23
+**Current Focus:** Phase 1 - Backend Setup (Content Types & Sample Data)
+**Current Status:** ✅ Backend server running, ✅ Admin account created
+**Next Milestone:** Complete all content types → Add sample data → Test APIs → Build Menu page

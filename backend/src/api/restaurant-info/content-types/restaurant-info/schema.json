@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurant_infos",
+  "info": {
+    "singularName": "restaurant-info",
+    "pluralName": "restaurant-infos",
+    "displayName": "Restaurant Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "address": {
+      "type": "text"
+    },
+    "openingHours": {
+      "type": "json"
+    },
+    "socialMedia": {
+      "type": "json"
+    }
+  }
+}
