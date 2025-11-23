@@ -7,6 +7,7 @@ Complete guide for deploying BepHue Restaurant website using Docker.
 ## ⚡ Quick Reference
 
 **First Time Setup:**
+
 ```bash
 cp .env.example .env          # Copy environment file
 # Edit .env with your secrets
@@ -14,6 +15,7 @@ docker-compose up -d --build  # Build and start
 ```
 
 **Daily Operations:**
+
 ```bash
 docker-compose up -d          # Start all services
 docker-compose down           # Stop all services
@@ -22,6 +24,7 @@ docker-compose restart backend # Restart a service
 ```
 
 **Access Points:**
+
 - Frontend: http://localhost:3000
 - Backend Admin: http://localhost:1337/admin
 - With Nginx: http://localhost
@@ -38,6 +41,7 @@ docker-compose restart backend # Restart a service
 ### Install Docker
 
 **Ubuntu/Debian:**
+
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -97,6 +101,7 @@ notepad .env
 ```
 
 **Important:** Replace all `change-this-*` values in `.env`:
+
 - `DATABASE_PASSWORD` - Strong database password
 - `JWT_SECRET` - Random secret for JWT
 - `ADMIN_JWT_SECRET` - Random secret for admin
@@ -108,6 +113,7 @@ notepad .env
 ### 3. Build and Run
 
 **Development Mode:**
+
 ```bash
 # Build images
 docker-compose build
@@ -120,6 +126,7 @@ docker-compose up -d
 ```
 
 **Production Mode:**
+
 ```bash
 # Set production environment
 export NODE_ENV=production
@@ -226,7 +233,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1'
+          cpus: "1"
           memory: 1G
         reservations:
           memory: 512M
@@ -301,11 +308,13 @@ docker-compose logs -f
 ### 1. Secrets Management
 
 ❌ **Don't:**
+
 - Commit `.env` file to Git
 - Use default passwords
 - Share secrets in plain text
 
 ✅ **Do:**
+
 - Use `.env.example` as template
 - Generate strong random secrets
 - Use environment variables
@@ -319,6 +328,7 @@ openssl rand -base64 32
 ### 2. Firewall Configuration
 
 **Linux (UFW):**
+
 ```bash
 # Allow only necessary ports
 sudo ufw allow 80/tcp
@@ -328,6 +338,7 @@ sudo ufw enable
 ```
 
 **Windows Firewall:**
+
 ```powershell
 # Open Windows Defender Firewall
 # Manually add inbound rules for ports 80, 443, 1337, 3000
@@ -384,6 +395,7 @@ docker stats bephue-frontend
 ### Port Already in Use
 
 **Linux/macOS:**
+
 ```bash
 # Find and kill process
 lsof -ti:3000 | xargs kill -9
@@ -391,6 +403,7 @@ lsof -ti:1337 | xargs kill -9
 ```
 
 **Windows PowerShell:**
+
 ```powershell
 # Find process using port
 netstat -ano | findstr :3000

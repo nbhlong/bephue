@@ -11,6 +11,7 @@ Before you begin, ensure you have the following installed:
 - **Git** ([Download](https://git-scm.com/))
 
 Verify installations:
+
 ```bash
 node --version  # Should be v18 or higher
 npm --version   # Should be v9 or higher
@@ -27,6 +28,7 @@ npm run install:all
 ```
 
 This will install dependencies for:
+
 - Root package (monorepo scripts)
 - Frontend (Next.js)
 - Backend (Strapi)
@@ -34,6 +36,7 @@ This will install dependencies for:
 ### 2. Start Development Servers
 
 **Start both frontend and backend together:**
+
 ```bash
 npm run dev
 ```
@@ -170,6 +173,7 @@ Repeat for more menu items.
 3. For JSON fields, use this format:
 
 **openingHours:**
+
 ```json
 {
   "monday": { "open": "10:00", "close": "22:00" },
@@ -183,6 +187,7 @@ Repeat for more menu items.
 ```
 
 **socialMedia:**
+
 ```json
 {
   "facebook": "https://facebook.com/bephue",
@@ -211,8 +216,8 @@ Edit `frontend/app/globals.css`:
 
 ```css
 @theme inline {
-  --color-primary: #dc2626;        /* Change this */
-  --color-primary-hover: #ef4444;  /* And this */
+  --color-primary: #dc2626; /* Change this */
+  --color-primary-hover: #ef4444; /* And this */
   --color-secondary: #1f2937;
 }
 ```
@@ -262,6 +267,7 @@ npm run build     # Build admin panel
 If ports 3000 or 1337 are in use:
 
 **Windows:**
+
 ```bash
 # Kill process on port 3000
 npx kill-port 3000
@@ -271,6 +277,7 @@ npx kill-port 1337
 ```
 
 **Mac/Linux:**
+
 ```bash
 lsof -ti:3000 | xargs kill -9
 lsof -ti:1337 | xargs kill -9

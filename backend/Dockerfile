@@ -32,7 +32,7 @@ ENV NODE_ENV=production
 
 # Create a non-root user
 RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 strapi
+  adduser --system --uid 1001 strapi
 
 # Copy built application
 COPY --from=builder --chown=strapi:nodejs /opt/app ./
