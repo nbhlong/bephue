@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background -->
+  <rect width="100" height="100" fill="#DC2626" rx="20"/>
+
+  <!-- Bowl shape -->
+  <path d="M 25 45 Q 25 35 35 35 L 65 35 Q 75 35 75 45 L 75 55 Q 75 70 50 70 Q 25 70 25 55 Z"
+        fill="white" opacity="0.95"/>
+
+  <!-- Steam lines -->
+  <path d="M 35 25 Q 35 20 35 15" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 50 28 Q 50 23 50 18" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+  <path d="M 65 25 Q 65 20 65 15" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- Letter H -->
+  <text x="50" y="62" font-family="Arial, sans-serif" font-size="28" font-weight="bold"
+        fill="#DC2626" text-anchor="middle">H</text>
+</svg>

@@ -1,5 +1,18 @@
 import Image from 'next/image';
+import { Metadata } from 'next';
 import { getRestaurantInfo, strapiBlocksToText } from '@/lib/api/strapi';
+
+export const metadata: Metadata = {
+  title: 'Về Chúng Tôi - Câu Chuyện BepHue',
+  description:
+    'Tìm hiểu về câu chuyện của BepHue, đội ngũ đầu bếp tài năng và giá trị cốt lõi trong việc mang ẩm thực cung đình Huế chính gốc đến với thực khách.',
+  openGraph: {
+    title: 'Về Chúng Tôi - BepHue Restaurant',
+    description: 'Câu chuyện về BepHue và ẩm thực cung đình Huế chính gốc',
+    url: 'https://bephue.vn/about',
+    type: 'website',
+  },
+};
 
 export default async function AboutPage() {
   const restaurantData = await getRestaurantInfo();

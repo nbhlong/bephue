@@ -1,0 +1,31 @@
+{
+  "name": "BepHue Restaurant - Ẩm Thực Cung Đình Huế",
+  "short_name": "BepHue",
+  "description": "Nhà hàng ẩm thực cung đình Huế chính gốc tại TP.HCM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#DC2626",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["food", "restaurant", "lifestyle"],
+  "lang": "vi-VN",
+  "dir": "ltr"
+}
