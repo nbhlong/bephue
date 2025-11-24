@@ -24,12 +24,12 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-bep-cream shadow-bep-md border-b border-bep-bamboo/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary">
+          <Link href="/" className="flex items-center space-x-2 group">
+            <div className="text-2xl font-heading font-bold text-bep-red transition-colors group-hover:text-bep-red-dark">
               Bếp Huế
             </div>
           </Link>
@@ -40,15 +40,15 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors relative ${
+                className={`font-body font-medium transition-colors relative ${
                   isActive(link.href)
-                    ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    ? 'text-bep-red'
+                    : 'text-bep-brown hover:text-bep-red'
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"></span>
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-bep-red rounded-full"></span>
                 )}
               </Link>
             ))}
@@ -58,7 +58,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href="/reservation"
-              className="bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              className="bg-bep-red hover:bg-bep-red-dark text-white px-6 py-3 rounded-bep font-semibold transition-all duration-300 shadow-bep hover:shadow-bep-glow"
             >
               Đặt bàn
             </Link>
@@ -67,7 +67,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-primary"
+            className="md:hidden p-2 text-bep-brown hover:text-bep-red transition-colors"
             aria-label="Toggle menu"
           >
             <svg
@@ -90,17 +90,17 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
-            <nav className="flex flex-col space-y-4">
+          <div className="md:hidden py-4 border-t border-bep-bamboo/20">
+            <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`font-medium transition-colors px-4 py-2 ${
+                  className={`font-body font-medium transition-colors px-4 py-2 rounded-bep ${
                     isActive(link.href)
-                      ? 'text-primary bg-red-50'
-                      : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                      ? 'text-bep-red bg-bep-cream-light'
+                      : 'text-bep-brown hover:text-bep-red hover:bg-bep-cream-light'
                   }`}
                 >
                   {link.label}
@@ -109,7 +109,7 @@ export default function Header() {
               <Link
                 href="/reservation"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-lg font-semibold transition-colors mx-4 text-center"
+                className="bg-bep-red hover:bg-bep-red-dark text-white px-6 py-3 rounded-bep font-semibold transition-all duration-300 mx-4 text-center shadow-bep hover:shadow-bep-glow"
               >
                 Đặt bàn
               </Link>

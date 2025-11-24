@@ -40,10 +40,10 @@ export default function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 drop-shadow-lg">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-body drop-shadow-md">
             {subtitle}
           </p>
 
@@ -51,13 +51,13 @@ export default function Hero({
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/menu"
-                className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all hover:scale-105"
+                className="bg-bep-red hover:bg-bep-red-dark text-white px-8 py-4 rounded-bep text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-bep-lg hover:shadow-bep-glow"
               >
                 Xem thực đơn
               </Link>
               <Link
                 href="/reservation"
-                className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-all hover:scale-105"
+                className="bg-bep-cream hover:bg-bep-cream-light text-bep-brown px-8 py-4 rounded-bep text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-bep-lg border-2 border-bep-bamboo"
               >
                 Đặt bàn ngay
               </Link>

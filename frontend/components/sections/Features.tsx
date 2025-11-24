@@ -53,24 +53,24 @@ function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
       }`}
     >
       {/* Image */}
-      <div className={`relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl ${
+      <div className={`relative h-[400px] lg:h-[500px] rounded-bep-xl overflow-hidden shadow-bep-xl border-4 border-bep-bamboo/20 ${
         isReversed ? 'lg:col-start-2' : ''
       }`}>
         <Image
           src={feature.imageUrl}
           alt={feature.imageAlt}
           fill
-          className="object-cover hover:scale-110 transition-transform duration-700"
+          className="object-cover hover:scale-105 transition-transform duration-700"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
       </div>
 
       {/* Content */}
       <div className={isReversed ? 'lg:col-start-1 lg:row-start-1' : ''}>
-        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+        <h2 className="text-3xl lg:text-4xl font-heading font-bold text-bep-brown mb-6">
           {feature.title}
         </h2>
-        <p className="text-lg text-gray-600 leading-relaxed">
+        <p className="text-lg text-bep-charcoal leading-relaxed font-body">
           {feature.description}
         </p>
       </div>
@@ -80,7 +80,7 @@ function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
 
 export default function Features({ features = defaultFeatures }: FeaturesProps) {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-bep-cream">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="space-y-24">
           {features.map((feature, index) => (

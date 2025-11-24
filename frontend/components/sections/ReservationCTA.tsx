@@ -2,13 +2,10 @@ import Link from 'next/link';
 
 export default function ReservationCTA() {
   return (
-    <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-bep-red to-bep-red-dark text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
+        <div className="absolute inset-0 bg-bamboo-pattern"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -29,12 +26,12 @@ export default function ReservationCTA() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
             Đặt Bàn Ngay Hôm Nay
           </h2>
 
           {/* Description */}
-          <p className="text-xl md:text-2xl text-red-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-bep-cream-light mb-10 max-w-2xl mx-auto leading-relaxed font-body">
             Trải nghiệm hương vị Huế đặc sắc trong không gian ấm cúng.
             Đặt bàn ngay để nhận ưu đãi đặc biệt!
           </p>
@@ -43,20 +40,20 @@ export default function ReservationCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/reservation"
-              className="inline-block bg-white text-red-600 font-bold px-10 py-5 rounded-full text-lg hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105"
+              className="inline-block bg-bep-cream text-bep-red font-bold px-10 py-5 rounded-bep-lg text-lg hover:bg-bep-cream-light transition-all duration-300 shadow-bep-xl transform hover:scale-105 border-2 border-bep-bamboo"
             >
               Đặt Bàn Ngay
             </Link>
             <Link
               href="/menu"
-              className="inline-block bg-transparent border-2 border-white text-white font-bold px-10 py-5 rounded-full text-lg hover:bg-white hover:text-red-600 transition-all duration-300"
+              className="inline-block bg-transparent border-2 border-bep-cream text-white font-bold px-10 py-5 rounded-bep-lg text-lg hover:bg-bep-cream hover:text-bep-red transition-all duration-300"
             >
               Xem Thực Đơn
             </Link>
           </div>
 
           {/* Contact Info */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-red-100">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-bep-cream-light font-body">
             <a
               href="tel:+842812345678"
               className="flex items-center space-x-2 hover:text-white transition-colors"
