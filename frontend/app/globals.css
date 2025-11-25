@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5EBD9;  /* Warm cream - BepHue brand */
+  --foreground: #4A3829;  /* Rich brown - BepHue brand */
 }
 
 @theme inline {
   /* BepHue Brand Colors */
-  --color-primary: #dc2626;
-  --color-primary-hover: #ef4444;
-  --color-secondary: #1f2937;
-  --color-accent: #ef4444;
+  --color-primary: #D44638;      /* Signature red - BepHue brand */
+  --color-primary-hover: #B73529; /* Darker red on hover */
+  --color-secondary: #4A3829;     /* Rich brown */
+  --color-accent: #C67946;        /* Terracotta */
 
   /* Base Colors */
   --color-background: var(--background);
@@ -23,13 +23,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2C1810;  /* Warm dark brown - not pure black */
+    --foreground: #F5EBD9;  /* Warm cream text */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
 }

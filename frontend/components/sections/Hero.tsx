@@ -29,8 +29,8 @@ export default function Hero({
           priority
           quality={90}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Overlay - Warm gradient for imperial Hue atmosphere */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bep-brown/60 via-bep-brown/40 to-bep-terracotta/50" />
       </div>
 
       {/* Content */}
@@ -40,7 +40,10 @@ export default function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 drop-shadow-lg">
+          <h1
+            className="text-5xl md:text-7xl font-heading font-bold mb-6 drop-shadow-lg"
+            style={{ textShadow: '2px 2px 8px rgba(74, 56, 41, 0.5)' }}
+          >
             {title}
           </h1>
           <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-body drop-shadow-md">
