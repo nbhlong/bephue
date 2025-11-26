@@ -1,32 +1,28 @@
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Thực Đơn - Món Ăn Huế Đặc Sắc',
+  title: "Thực Đơn - Món Huế Đậm Vị Quê Nhà",
   description:
-    'Khám phá thực đơn đa dạng với các món ăn Huế đặc sắc: bún bò Huế, bánh bèo, bánh khoái, nem lụi và nhiều món ngon khác. Giá cả hợp lý, chất lượng đảm bảo.',
+    "Khám phá thực đơn món Huế tại Bếp Huế: bún bò Huế, cơm hến, nem lụi, các loại bánh Huế và nhiều món ngon khác.",
   keywords: [
-    'thực đơn BepHue',
-    'món Huế',
-    'bún bò Huế',
-    'bánh bèo',
-    'bánh khoái',
-    'nem lụi',
-    'cơm hến',
-    'ẩm thực Huế',
-    'menu',
+    "thực đơn Bếp Huế",
+    "món Huế",
+    "bún bò Huế",
+    "bánh bèo",
+    "bánh khoái",
+    "nem lụi",
+    "cơm hến",
+    "ẩm thực Huế",
+    "menu",
   ],
   openGraph: {
-    title: 'Thực Đơn - BepHue Restaurant',
-    description: 'Khám phá thực đơn món Huế đặc sắc tại BepHue',
-    url: 'https://bephue.vn/menu',
-    type: 'website',
+    title: "Thực Đơn - Bếp Huế",
+    description: "Khám phá thực đơn món Huế đậm vị quê nhà tại Bếp Huế",
+    url: "https://bephue.vn/menu",
+    type: "website",
   },
 };
 
-export default function MenuLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MenuLayout({ children }: { children: React.ReactNode }) {
   return children;
 }

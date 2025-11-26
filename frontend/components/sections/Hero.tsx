@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface HeroProps {
   title?: string;
@@ -13,84 +13,68 @@ interface HeroProps {
 
 export default function Hero({
   title = "Bếp Huế",
-  subtitle = "Hương vị truyền thống ẩm thực cung đình Huế",
-  imageUrl = "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920&q=80",
+  subtitle = "Hương vị cung đình – Đậm chất Huế xưa",
+  imageUrl = "/resources/mockups/hero.png",
   showCTA = true,
 }: HeroProps) {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-bep-brown">
+      {/* Background Image with warm vignette */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={imageUrl}
-          alt="BepHue Hero"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        {/* Overlay - Warm gradient for imperial Hue atmosphere */}
-        <div className="absolute inset-0 bg-gradient-to-b from-bep-brown/60 via-bep-brown/40 to-bep-terracotta/50" />
+        <Image src={imageUrl} alt="BepHue Hero" fill className="object-cover" priority quality={90} />
+        <div className="absolute inset-0 bg-gradient-to-b from-bep-brown/35 via-bep-brown/25 to-bep-brown/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bep-brown/85 via-bep-brown/45 to-transparent" />
+      </div>
+
+      {/* Corner ornaments */}
+      <div className="pointer-events-none absolute inset-0 z-10">
+        {["tl", "tr", "bl", "br"].map((pos) => (
+          <span
+            key={pos}
+            className="absolute h-12 w-12 border-[1.5px] border-[var(--color-gold)]"
+            style={{
+              top: pos.includes("t") ? "1.75rem" : "auto",
+              bottom: pos.includes("b") ? "1.75rem" : "auto",
+              left: pos.includes("l") ? "1.75rem" : "auto",
+              right: pos.includes("r") ? "1.75rem" : "auto",
+              borderTopWidth: pos.includes("t") ? "1.5px" : "0",
+              borderLeftWidth: pos.includes("l") ? "1.5px" : "0",
+              borderRightWidth: pos.includes("r") ? "1.5px" : "0",
+              borderBottomWidth: pos.includes("b") ? "1.5px" : "0",
+            }}
+          />
+        ))}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
+      <div className="relative z-20 w-full">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-24 text-center md:gap-8 md:py-28"
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1
-            className="text-5xl md:text-7xl font-heading font-bold mb-6 drop-shadow-lg"
-            style={{ textShadow: '2px 2px 8px rgba(74, 56, 41, 0.5)' }}
-          >
+          {/* Logo text */}
+          <div className="flex flex-col text-bep-cream items-center gap-1 leading-none">
+            <span className="text-3xl font-heading tracking-[0.08em] drop-shadow-md">BEP</span>
+            <span className="text-3xl font-heading tracking-[0.08em] drop-shadow-md">HUE</span>
+          </div>
+
+          <h1 className="font-heading text-bep-cream text-5xl leading-tight drop-shadow-xl md:text-6xl lg:text-7xl">
             {title}
           </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-body drop-shadow-md">
-            {subtitle}
-          </p>
+          <p className="text-xl text-bep-cream leading-relaxed drop-shadow-md md:text-2xl">{subtitle}</p>
 
           {showCTA && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/menu"
-                className="bg-bep-red hover:bg-bep-red-dark text-white px-8 py-4 rounded-bep text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-bep-lg hover:shadow-bep-glow"
-              >
-                Xem thực đơn
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
+              <Link href="/menu" className="btn-primary-red text-base md:text-lg">
+                Xem Thực Đơn
               </Link>
-              <Link
-                href="/reservation"
-                className="bg-bep-cream hover:bg-bep-cream-light text-bep-brown px-8 py-4 rounded-bep text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-bep-lg border-2 border-bep-bamboo"
-              >
-                Đặt bàn ngay
+              <Link href="/reservation" className="btn-outline-gold text-base md:text-lg">
+                Đặt Bàn
               </Link>
             </div>
           )}
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 1,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        >
-          <svg
-            className="w-6 h-6 text-white"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
         </motion.div>
       </div>
     </section>

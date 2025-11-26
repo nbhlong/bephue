@@ -32,14 +32,12 @@ export default function MenuPage() {
     async function fetchData() {
       setLoading(true);
       try {
-        // Fetch featured items (only on initial load)
+        // Fetch featured items once on initial "all" category
         if (selectedCategory === "all" && featuredItems.data.length === 0) {
           const featured = await getFeaturedMenuItems();
-          console.log("Fetched featured items:", featured.data.length);
           setFeaturedItems(featured);
         }
 
-        // Fetch menu items by category
         const category = selectedCategory === "all" ? undefined : selectedCategory;
         const items = await getMenuItems(category);
         setMenuItems(items);
@@ -53,28 +51,38 @@ export default function MenuPage() {
     fetchData();
   }, [selectedCategory]);
 
+  const activeCategory = categories.find((c) => c.id === selectedCategory);
+
   return (
-    <main className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 to-red-700 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Thực Đơn</h1>
-          <p className="text-xl md:text-2xl text-red-100 max-w-2xl mx-auto">
-            Khám phá hương vị ẩm thực cung đình Huế đích thực
-          </p>
+    <main className="min-h-screen bg-bh-beige-soft text-bh-text-main">
+      {/* Menu Hero */}
+      <section className="bh-section bg-bh-beige">
+        <div className="bh-container grid gap-8 md:grid-cols-[1.3fr,1fr] items-center">
+          <div>
+            <h1 className="font-serif text-4xl md:text-5xl text-bh-brown">Thực đơn Bếp Huế</h1>
+            <p className="mt-4 text-bh-text-muted leading-relaxed md:text-lg">
+              Từ bún bò Huế, cơm hến đến các loại bánh Huế truyền thống – mỗi món ăn đều được chuẩn bị tươi mới mỗi ngày, giữ
+              trọn hương vị cung đình và dân gian xứ Huế.
+            </p>
+          </div>
+
+          <div className="hidden md:block overflow-hidden rounded-bh-xl shadow-bh-soft">
+            <img src="/images/menu-hero.jpg" alt="Món Huế tại Bếp Huế" className="h-full w-full object-cover" />
+          </div>
         </div>
       </section>
 
       {/* Featured Dishes Section */}
       {selectedCategory === "all" && featuredItems.data.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Món Đặc Biệt</h2>
-              <p className="text-lg text-gray-600">Những món ăn đặc trưng của BepHue</p>
-            </div>
+        <section className="bh-section bg-bh-beige-soft pt-0">
+          <div className="bh-container">
+            <h2 className="bh-section-title">Món đặc biệt</h2>
+            <p className="bh-section-subtitle">
+              Những món ăn tiêu biểu nhất của Bếp Huế – gợi ý hoàn hảo cho lần đầu ghé quán.
+            </p>
+            <div className="bh-section-underline" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
               {featuredItems.data.map((item) => (
                 <MenuCard
                   key={item.id}
@@ -92,48 +100,50 @@ export default function MenuPage() {
       )}
 
       {/* Category Filter */}
-      <section className="py-8 bg-gray-100 sticky top-0 z-20 shadow-md">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id as CategoryType)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  selectedCategory === category.id
-                    ? "bg-red-600 text-white shadow-lg scale-105"
-                    : "bg-white text-gray-700 hover:bg-red-50 hover:text-red-600"
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
+      <section className="bg-bh-beige sticky top-0 z-20 border-y border-bh-gold/20">
+        <div className="bh-container py-4">
+          <div className="flex gap-3 overflow-x-auto pb-2 md:justify-center">
+            {categories.map((category) => {
+              const isActive = selectedCategory === category.id;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id as CategoryType)}
+                  className={[
+                    "whitespace-nowrap rounded-full px-5 py-2 text-sm font-semibold transition-all",
+                    isActive
+                      ? "bg-bh-red text-white shadow-bh-soft scale-[1.03]"
+                      : "bg-white text-bh-text-main hover:bg-bh-beige-soft hover:text-bh-red",
+                  ].join(" ")}
+                >
+                  {category.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Menu Items Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="bh-section bg-bh-beige-soft">
+        <div className="bh-container">
           {loading ? (
-            <div className="text-center py-20">
-              <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-red-600 border-r-transparent"></div>
-              <p className="mt-4 text-gray-600">Đang tải thực đơn...</p>
+            <div className="py-20 text-center">
+              <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-bh-red border-r-transparent" />
+              <p className="mt-4 text-bh-text-muted">Đang tải thực đơn...</p>
             </div>
           ) : menuItems.data.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-xl text-gray-600">Không tìm thấy món ăn nào.</p>
+            <div className="py-20 text-center">
+              <p className="text-lg text-bh-text-muted">Không tìm thấy món ăn nào.</p>
             </div>
           ) : (
             <>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-gray-900 mb-2">
-                  {categories.find((c) => c.id === selectedCategory)?.label}
-                </h2>
-                <p className="text-gray-600">{menuItems.meta.pagination.total} món ăn</p>
+              <div className="mb-10 text-center">
+                <h2 className="font-serif text-3xl text-bh-brown">{activeCategory?.label}</h2>
+                <p className="mt-2 text-sm text-bh-text-muted">{menuItems.meta.pagination.total} món ăn</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {menuItems.data.map((item) => (
                   <MenuCard
                     key={item.id}
@@ -152,15 +162,18 @@ export default function MenuPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-red-600 to-red-700 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Sẵn sàng trải nghiệm?</h2>
-          <p className="text-xl mb-8 text-red-100">Đặt bàn ngay hôm nay để thưởng thức ẩm thực Huế đích thực</p>
+      <section className="bh-section bg-bh-brown">
+        <div className="bh-container text-center">
+          <h2 className="font-serif text-3xl md:text-4xl text-bh-beige-soft">Sẵn sàng thưởng thức hương vị Huế?</h2>
+          <p className="mt-4 text-bh-beige-soft/80 max-w-xl mx-auto">
+            Đặt bàn ngay hôm nay để không bỏ lỡ bát bún bò nóng hổi, đĩa bánh Huế thơm lừng và không gian ấm cúng tại Bếp
+            Huế.
+          </p>
           <a
             href="/reservation"
-            className="inline-block bg-white text-red-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-300"
+            className="mt-8 inline-block rounded-full bg-bh-red px-8 py-3 text-sm font-semibold text-white shadow-bh-soft hover:bg-bh-red-soft transition-colors"
           >
-            Đặt Bàn Ngay
+            Đặt bàn ngay
           </a>
         </div>
       </section>

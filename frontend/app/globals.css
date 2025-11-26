@@ -3,33 +3,294 @@
 :root {
   --background: #F5EBD9;  /* Warm cream - BepHue brand */
   --foreground: #4A3829;  /* Rich brown - BepHue brand */
+  --accent-gold: #D4A574;
+  --accent-terracotta: #C67946;
+  --accent-red: #D44638;
+
+  /* Font fallbacks are overridden by Next.js font variables in layout.tsx */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 @theme inline {
-  /* BepHue Brand Colors */
-  --color-primary: #D44638;      /* Signature red - BepHue brand */
-  --color-primary-hover: #B73529; /* Darker red on hover */
-  --color-secondary: #4A3829;     /* Rich brown */
-  --color-accent: #C67946;        /* Terracotta */
-
-  /* Base Colors */
+  /* ============================================
+     COLORS - BepHue Brand System
+     ============================================ */
+  
+  /* Legacy/Helper Colors */
+  --color-primary: #D44638;
+  --color-primary-hover: #B73529;
+  --color-secondary: #4A3829;
+  --color-accent: #C67946;
+  --color-gold: #D4A574;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Primary Brand Colors */
+  --color-bep-red: #D44638;
+  --color-bep-red-light: #E05A4C;
+  --color-bep-red-dark: #B73529;
+  
+  --color-bep-cream: #F5EBD9;
+  --color-bep-cream-light: #FAF3E7;
+  --color-bep-cream-dark: #EBD9BC;
+  
+  --color-bep-brown: #4A3829;
+  --color-bep-brown-light: #6B5444;
+  --color-bep-brown-dark: #2C1810;
+
+  /* Secondary Colors */
+  --color-bep-terracotta: #C67946;
+  --color-bep-terracotta-light: #D4925E;
+  --color-bep-terracotta-dark: #A5612E;
+  
+  --color-bep-ceramic: #2F4F6F;
+  --color-bep-ceramic-light: #4A6B8A;
+  --color-bep-ceramic-dark: #1E3346;
+  
+  --color-bep-herb: #7CB342;
+  --color-bep-herb-light: #95C465;
+  --color-bep-herb-dark: #629230;
+
+  /* Accent Colors */
+  --color-bep-bamboo: #D4A574;
+  --color-bep-bamboo-light: #E0B98C;
+  --color-bep-bamboo-dark: #BC8E5C;
+  
+  --color-bep-chili: #B71C1C;
+  --color-bep-chili-light: #D32F2F;
+  --color-bep-chili-dark: #8B0000;
+
+  /* Neutrals */
+  --color-bep-charcoal: #2C2C2C;
+  --color-bep-charcoal-light: #4A4A4A;
+  --color-bep-charcoal-dark: #1A1A1A;
+  
+  --color-bep-white: #FFFFFF;
+  --color-bep-white-warm: #FFF8F0;
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  
+  /* Font Families */
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-display: Cormorant, Georgia, serif;
+
+  /* Font Sizes - Optimized for Vietnamese diacritics */
+  --font-size-xs: 0.75rem;
+  --font-size-xs--line-height: 1rem;
+  
+  --font-size-sm: 0.875rem;
+  --font-size-sm--line-height: 1.4rem;
+  
+  --font-size-base: 1rem;
+  --font-size-base--line-height: 1.6rem;
+  
+  --font-size-lg: 1.125rem;
+  --font-size-lg--line-height: 1.8rem;
+  
+  --font-size-xl: 1.25rem;
+  --font-size-xl--line-height: 2rem;
+  
+  --font-size-2xl: 1.5rem;
+  --font-size-2xl--line-height: 2.2rem;
+  
+  --font-size-3xl: 1.875rem;
+  --font-size-3xl--line-height: 2.5rem;
+  
+  --font-size-4xl: 2.25rem;
+  --font-size-4xl--line-height: 2.8rem;
+  
+  --font-size-5xl: 3rem;
+  --font-size-5xl--line-height: 3.4rem;
+
+  /* ============================================
+     SPACING - Vietnamese architecture inspired
+     ============================================ */
+  
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+
+  /* ============================================
+     SHADOWS - Warm, soft shadows
+     ============================================ */
+  
+  --shadow-bep-sm: 0 1px 2px 0 rgb(74 56 41 / 0.05);
+  --shadow-bep: 0 4px 6px -1px rgb(74 56 41 / 0.1), 0 2px 4px -1px rgb(74 56 41 / 0.06);
+  --shadow-bep-md: 0 10px 15px -3px rgb(74 56 41 / 0.1), 0 4px 6px -2px rgb(74 56 41 / 0.05);
+  --shadow-bep-lg: 0 20px 25px -5px rgb(74 56 41 / 0.1), 0 10px 10px -5px rgb(74 56 41 / 0.04);
+  --shadow-bep-xl: 0 25px 50px -12px rgb(74 56 41 / 0.25);
+  --shadow-bep-glow: 0 0 15px rgb(212 70 56 / 0.3);
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  
+  --radius-bep-sm: 0.25rem;
+  --radius-bep: 0.5rem;
+  --radius-bep-md: 0.625rem;
+  --radius-bep-lg: 0.75rem;
+  --radius-bep-xl: 1rem;
+
+  /* ============================================
+     BACKDROP BLUR
+     ============================================ */
+  
+  --blur-bep: 8px;
+
+  /* ============================================
+     ANIMATIONS
+     ============================================ */
+  
+  --animate-fade-in: fade-in 0.5s ease-in-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+
+  /* ============================================
+     TIMING FUNCTIONS
+     ============================================ */
+  
+  --ease-bep: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-400: 400ms;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2C1810;  /* Warm dark brown - not pure black */
-    --foreground: #F5EBD9;  /* Warm cream text */
-  }
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.01em;
+}
+
+p {
+  line-height: 1.8;
+}
+
+::selection {
+  background: rgba(212, 70, 56, 0.15);
+  color: var(--foreground);
+}
+
+/* Hero helpers inspired by the mockups */
+.hero-warm-overlay {
+  background: radial-gradient(ellipse at 15% 15%, rgba(212, 165, 116, 0.15), transparent 45%),
+              linear-gradient(90deg, rgba(74, 56, 41, 0.65) 0%, rgba(74, 56, 41, 0.35) 45%, rgba(74, 56, 41, 0.15) 100%);
+}
+
+.btn-primary-red {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 9999px;
+  padding: 0.9rem 1.8rem;
+  font-weight: 700;
+  box-shadow: 0 12px 24px -8px rgba(212, 70, 56, 0.35);
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.btn-primary-red:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px -10px rgba(183, 53, 41, 0.4);
+}
+
+.btn-outline-gold {
+  background-color: rgba(245, 235, 217, 0.92);
+  color: var(--color-secondary);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 9999px;
+  padding: 0.9rem 1.8rem;
+  font-weight: 700;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease, color 200ms ease;
+  box-shadow: 0 12px 24px -10px rgba(74, 56, 41, 0.25);
+}
+
+.btn-outline-gold:hover {
+  background-color: #fdf8ef;
+  color: var(--color-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px -12px rgba(74, 56, 41, 0.28);
+}
+
+.gold-underline {
+  position: relative;
+  padding-bottom: 0.9rem;
+}
+
+.gold-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 30%, var(--color-gold) 70%, transparent 100%);
+}
+
+/* Ornament lines inspired by the mockup */
+.ornament-line {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 20%, var(--color-gold) 80%, transparent 100%);
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-gold);
+  border-radius: 2px;
+}
+
+.ornament-line::before {
+  left: 12%;
+  border-right: none;
+  border-bottom: none;
+}
+
+.ornament-line::after {
+  right: 12%;
+  border-left: none;
+  border-bottom: none;
 }
