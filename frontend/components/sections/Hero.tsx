@@ -18,12 +18,10 @@ export default function Hero({
   showCTA = true,
 }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-bep-brown">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg">
       {/* Background Image with warm vignette */}
       <div className="absolute inset-0 z-0">
         <Image src={imageUrl} alt="BepHue Hero" fill className="object-cover" priority quality={90} />
-        <div className="absolute inset-0 bg-gradient-to-b from-bep-brown/35 via-bep-brown/25 to-bep-brown/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bep-brown/85 via-bep-brown/45 to-transparent" />
       </div>
 
       {/* Corner ornaments */}
