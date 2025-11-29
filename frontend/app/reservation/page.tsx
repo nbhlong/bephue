@@ -87,27 +87,27 @@ export default function ReservationPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-bep-cream pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 to-red-700 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Đặt Bàn</h1>
-          <p className="text-xl md:text-2xl text-red-100 max-w-2xl mx-auto">
+      <section className="bg-bep-brown text-bep-cream py-16 md:py-20">
+        <div className="bh-container text-center">
+          <h1 className="text-4xl md:text-5xl font-heading font-semibold mb-4">Đặt Bàn</h1>
+          <p className="text-lg md:text-xl text-bep-cream-light max-w-2xl mx-auto">
             Đảm bảo chỗ ngồi tốt nhất cho bữa ăn của bạn
           </p>
         </div>
       </section>
 
       {/* Reservation Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="bh-section">
+        <div className="bh-container">
           <div className="max-w-4xl mx-auto">
             {/* Info Banner */}
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
+            <div className="bg-bep-cream-light border border-bep-bamboo/30 rounded-bep-xl p-6 mb-8">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
                   <svg
-                    className="w-6 h-6 text-blue-600"
+                    className="w-6 h-6 text-bep-bamboo"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -119,10 +119,10 @@ export default function ReservationPage() {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-blue-900 mb-2">
+                  <h3 className="text-lg font-heading font-semibold text-bep-brown mb-2">
                     Lưu ý khi đặt bàn
                   </h3>
-                  <ul className="text-blue-800 space-y-1 text-sm">
+                  <ul className="text-bep-brown-light space-y-1 text-sm font-body">
                     <li>• Vui lòng đặt bàn trước ít nhất 2 giờ</li>
                     <li>• Chúng tôi sẽ giữ bàn trong 15 phút sau giờ đặt</li>
                     <li>• Với nhóm trên 10 người, vui lòng gọi điện trực tiếp</li>
@@ -135,18 +135,18 @@ export default function ReservationPage() {
             </div>
 
             {/* Reservation Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8 md:p-10">
+              <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">
                 Thông Tin Đặt Bàn
               </h2>
 
               {/* Success/Error Message */}
               {submitStatus.type && (
                 <div
-                  className={`mb-6 p-4 rounded-lg ${
+                  className={`mb-6 p-4 rounded-bep font-body ${
                     submitStatus.type === 'success'
-                      ? 'bg-green-50 border border-green-200 text-green-800'
-                      : 'bg-red-50 border border-red-200 text-red-800'
+                      ? 'bg-bep-herb-light/20 border border-bep-herb text-bep-herb-dark'
+                      : 'bg-bep-red-light/20 border border-bep-red text-bep-red-dark'
                   }`}
                 >
                   <p className="flex items-start">
@@ -187,23 +187,23 @@ export default function ReservationPage() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
+                      className="block text-sm font-semibold font-body text-bep-brown mb-2"
                     >
-                      Họ và tên <span className="text-red-600">*</span>
+                      Họ và tên <span className="text-bep-red">*</span>
                     </label>
                     <input
                       {...register('name')}
                       type="text"
                       id="name"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                      className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                         errors.name
-                          ? 'border-red-300 bg-red-50'
-                          : 'border-gray-300'
+                          ? 'border-bep-red bg-bep-red-light/10'
+                          : 'border-bep-bamboo/30 bg-bep-cream'
                       }`}
                       placeholder="Nguyễn Văn A"
                     />
                     {errors.name && (
-                      <p className="mt-2 text-sm text-red-600">
+                      <p className="mt-2 text-sm text-bep-red font-body">
                         {errors.name.message}
                       </p>
                     )}
@@ -213,23 +213,23 @@ export default function ReservationPage() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
+                      className="block text-sm font-semibold font-body text-bep-brown mb-2"
                     >
-                      Email <span className="text-red-600">*</span>
+                      Email <span className="text-bep-red">*</span>
                     </label>
                     <input
                       {...register('email')}
                       type="email"
                       id="email"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                      className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                         errors.email
-                          ? 'border-red-300 bg-red-50'
-                          : 'border-gray-300'
+                          ? 'border-bep-red bg-bep-red-light/10'
+                          : 'border-bep-bamboo/30 bg-bep-cream'
                       }`}
                       placeholder="email@example.com"
                     />
                     {errors.email && (
-                      <p className="mt-2 text-sm text-red-600">
+                      <p className="mt-2 text-sm text-bep-red font-body">
                         {errors.email.message}
                       </p>
                     )}
@@ -240,23 +240,23 @@ export default function ReservationPage() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
                   >
-                    Số điện thoại <span className="text-red-600">*</span>
+                    Số điện thoại <span className="text-bep-red">*</span>
                   </label>
                   <input
                     {...register('phone')}
                     type="tel"
                     id="phone"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                       errors.phone
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-bep-red bg-bep-red-light/10'
+                        : 'border-bep-bamboo/30 bg-bep-cream'
                     }`}
                     placeholder="0901234567"
                   />
                   {errors.phone && (
-                    <p className="mt-2 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-bep-red font-body">
                       {errors.phone.message}
                     </p>
                   )}
@@ -268,7 +268,7 @@ export default function ReservationPage() {
                   <div>
                     <label
                       htmlFor="datetime"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
+                      className="block text-sm font-semibold font-body text-bep-brown mb-2"
                     >
                       Ngày và Giờ <span className="text-red-600">*</span>
                     </label>
@@ -277,14 +277,14 @@ export default function ReservationPage() {
                       type="datetime-local"
                       id="datetime"
                       min={new Date().toISOString().slice(0, 16)}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                      className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                         errors.datetime
-                          ? 'border-red-300 bg-red-50'
-                          : 'border-gray-300'
+                          ? 'border-bep-red bg-bep-red-light/10'
+                          : 'border-bep-bamboo/30 bg-bep-cream'
                       }`}
                     />
                     {errors.datetime && (
-                      <p className="mt-2 text-sm text-red-600">
+                      <p className="mt-2 text-sm text-bep-red font-body">
                         {errors.datetime.message}
                       </p>
                     )}
@@ -297,17 +297,17 @@ export default function ReservationPage() {
                   <div>
                     <label
                       htmlFor="guests"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
+                      className="block text-sm font-semibold font-body text-bep-brown mb-2"
                     >
                       Số khách <span className="text-red-600">*</span>
                     </label>
                     <select
                       {...register('guests', { valueAsNumber: true })}
                       id="guests"
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                      className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                         errors.guests
-                          ? 'border-red-300 bg-red-50'
-                          : 'border-gray-300'
+                          ? 'border-bep-red bg-bep-red-light/10'
+                          : 'border-bep-bamboo/30 bg-bep-cream'
                       }`}
                     >
                       {GUEST_OPTIONS.map((num) => (
@@ -318,7 +318,7 @@ export default function ReservationPage() {
                       <option value="10+">10+ người (gọi điện)</option>
                     </select>
                     {errors.guests && (
-                      <p className="mt-2 text-sm text-red-600">
+                      <p className="mt-2 text-sm text-bep-red font-body">
                         {errors.guests.message}
                       </p>
                     )}
@@ -353,11 +353,11 @@ export default function ReservationPage() {
 
                 {/* Booking Summary */}
                 {selectedDatetime && selectedGuests && (
-                  <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                    <h3 className="font-semibold text-gray-900 mb-3">
+                  <div className="bg-bep-cream rounded-bep p-6 border border-bep-bamboo/30">
+                    <h3 className="font-heading font-semibold text-bep-brown mb-3">
                       Thông tin đặt bàn
                     </h3>
-                    <div className="space-y-2 text-sm text-gray-700">
+                    <div className="space-y-2 text-sm text-bep-brown-light font-body">
                       <p className="flex justify-between">
                         <span>Ngày và giờ:</span>
                         <span className="font-medium">
@@ -385,7 +385,7 @@ export default function ReservationPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center text-lg"
+                  className="btn-primary-red w-full py-4 px-6 text-lg disabled:bg-bep-brown-light disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -416,9 +416,9 @@ export default function ReservationPage() {
                   )}
                 </button>
 
-                <p className="text-sm text-gray-500 text-center">
+                <p className="text-sm text-bep-brown-light text-center font-body">
                   Bằng việc đặt bàn, bạn đồng ý với{' '}
-                  <a href="#" className="text-red-600 hover:underline">
+                  <a href="#" className="text-bep-red hover:underline">
                     điều khoản dịch vụ
                   </a>{' '}
                   của chúng tôi
@@ -427,20 +427,20 @@ export default function ReservationPage() {
             </div>
 
             {/* Contact Info */}
-            <div className="mt-8 bg-white rounded-2xl shadow-lg p-6">
+            <div className="mt-8 bg-bep-cream-light rounded-bep-xl shadow-bep border border-bep-bamboo/20 p-6">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">
+                  <h3 className="font-heading font-semibold text-bep-brown mb-1">
                     Cần hỗ trợ?
                   </h3>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-bep-brown-light text-sm font-body">
                     Liên hệ với chúng tôi để được hỗ trợ đặt bàn
                   </p>
                 </div>
                 <div className="flex items-center space-x-4">
                   <a
                     href="tel:+842812345678"
-                    className="flex items-center space-x-2 bg-red-50 text-red-600 px-4 py-2 rounded-lg hover:bg-red-100 transition-colors"
+                    className="flex items-center space-x-2 bg-bep-bamboo/10 text-bep-brown px-4 py-2 rounded-bep hover:bg-bep-bamboo/20 transition-colors font-body"
                   >
                     <svg
                       className="w-5 h-5"
@@ -463,18 +463,18 @@ export default function ReservationPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="bh-section bg-bep-cream-light">
+        <div className="bh-container">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+            <h2 className="bh-section-title mb-12">
               Ưu Điểm Khi Đặt Bàn Trước
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-red-600"
+                    className="w-8 h-8 text-bep-red"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -485,18 +485,18 @@ export default function ReservationPage() {
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-heading font-semibold text-bep-brown mb-2">
                   Đảm Bảo Chỗ Ngồi
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-bep-brown-light font-body">
                   Không lo hết chỗ, đặc biệt vào cuối tuần và giờ cao điểm
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-red-600"
+                    className="w-8 h-8 text-bep-red"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -507,18 +507,18 @@ export default function ReservationPage() {
                     <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-heading font-semibold text-bep-brown mb-2">
                   Tiết Kiệm Thời Gian
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-bep-brown-light font-body">
                   Không cần chờ đợi, được phục vụ ngay khi đến
                 </p>
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
-                    className="w-8 h-8 text-red-600"
+                    className="w-8 h-8 text-bep-red"
                     fill="none"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -529,10 +529,10 @@ export default function ReservationPage() {
                     <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-heading font-semibold text-bep-brown mb-2">
                   Vị Trí Ưu Tiên
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-bep-brown-light font-body">
                   Chọn vị trí đẹp, thoải mái theo sở thích
                 </p>
               </div>
@@ -542,15 +542,15 @@ export default function ReservationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-red-600 to-red-700 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Khám Phá Thực Đơn</h2>
-          <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
+      <section className="bh-section bg-bep-brown text-bep-cream">
+        <div className="bh-container text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">Khám Phá Thực Đơn</h2>
+          <p className="text-lg mb-8 text-bep-cream-light max-w-2xl mx-auto font-body">
             Xem trước các món ăn đặc sắc của chúng tôi
           </p>
           <a
             href="/menu"
-            className="inline-block bg-white text-red-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-300"
+            className="btn-outline-gold inline-block text-lg"
           >
             Xem Thực Đơn
           </a>

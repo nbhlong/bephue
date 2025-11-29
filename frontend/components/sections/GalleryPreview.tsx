@@ -11,15 +11,16 @@ export default async function GalleryPreview() {
   }
 
   return (
-    <section className="bg-bep-cream py-20">
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-heading font-bold text-bep-brown md:text-5xl">
+    <section className="bh-section bg-bep-cream-light">
+      <div className="bh-container">
+        <div className="mb-12 text-center">
+          <h2 className="bh-section-title">
             Thư viện hình ảnh
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-bep-brown md:text-xl">
+          <p className="bh-section-subtitle">
             Khám phá không gian ấm cúng và những món ăn đậm chất Huế tại Bếp Huế.
           </p>
+          <div className="bh-section-underline" />
         </div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-4">

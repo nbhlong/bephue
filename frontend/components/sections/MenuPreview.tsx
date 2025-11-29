@@ -29,15 +29,16 @@ export default async function MenuPreview() {
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
 
   return (
-    <section className="bg-bep-cream py-20">
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-heading font-bold text-bep-brown md:text-5xl">
+    <section className="bh-section bg-bep-cream">
+      <div className="bh-container">
+        <div className="mb-12 text-center">
+          <h2 className="bh-section-title">
             Thực đơn đặc sắc
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-bep-brown md:text-xl">
+          <p className="bh-section-subtitle">
             Khám phá những món Huế được chế biến chuẩn vị, chọn lọc nguyên liệu tươi mới mỗi ngày.
           </p>
+          <div className="bh-section-underline" />
         </div>
 
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">

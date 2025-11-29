@@ -2,12 +2,12 @@ import Link from 'next/link';
 
 export default function ReservationCTA() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-bep-red to-bep-red-dark py-20 text-white">
-      <div className="absolute inset-0 opacity-10">
+    <section className="bh-section relative overflow-hidden bg-bep-brown text-bep-cream">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-bamboo-pattern" />
       </div>
 
-      <div className="container relative z-10 mx-auto max-w-5xl px-4 text-center">
+      <div className="bh-container relative z-10 text-center">
         <div className="mx-auto flex w-20 h-20 items-center justify-center rounded-full bg-white/20 mb-6">
           <svg
             className="w-10 h-10"
@@ -22,10 +22,10 @@ export default function ReservationCTA() {
           </svg>
         </div>
 
-        <h2 className="mb-6 text-4xl font-heading font-bold md:text-5xl lg:text-6xl">
+        <h2 className="mb-6 text-3xl font-heading font-semibold md:text-4xl">
           Đặt bàn ngay hôm nay
         </h2>
-        <p className="mx-auto mb-10 max-w-2xl text-xl leading-relaxed text-bep-cream md:text-2xl">
+        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-bep-cream-light">
           Trải nghiệm hương vị Huế đậm đà trong không gian ấm cúng. Đặt bàn để giữ chỗ và nhận ưu đãi đặc biệt.
         </p>
 

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { getStrapiImageUrl, strapiBlocksToText } from '@/lib/api/strapi';
-import { StrapiTextBlock } from '@/types';
+import Image from "next/image";
+import { getStrapiImageUrl, strapiBlocksToText } from "@/lib/api/strapi";
+import { StrapiTextBlock } from "@/types";
 
 interface MenuCardProps {
   name: string;
@@ -12,19 +12,19 @@ interface MenuCardProps {
   imageAlt?: string;
   featured?: boolean;
   /** Use mockup style (circular image, minimal text) - default for menu grid */
-  variant?: 'default' | 'mockup' | 'detailed';
+  variant?: "default" | "mockup" | "detailed";
 }
 
 // Helper function to get text from description
 function getDescriptionText(description: string | StrapiTextBlock[]): string {
-  if (typeof description === 'string') {
+  if (typeof description === "string") {
     // If it's already a string, strip HTML tags
-    if (typeof window === 'undefined') {
-      return description.replace(/<[^>]*>/g, '');
+    if (typeof window === "undefined") {
+      return description.replace(/<[^>]*>/g, "");
     }
-    const tmp = document.createElement('div');
+    const tmp = document.createElement("div");
     tmp.innerHTML = description;
-    return tmp.textContent || tmp.innerText || '';
+    return tmp.textContent || tmp.innerText || "";
   }
   // If it's block content, convert to text
   return strapiBlocksToText(description);
@@ -32,7 +32,7 @@ function getDescriptionText(description: string | StrapiTextBlock[]): string {
 
 // Format price to Vietnamese Dong (short format like "80.000đ")
 function formatPrice(price: number): string {
-  return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
+  return new Intl.NumberFormat("vi-VN").format(price) + "đ";
 }
 
 export default function MenuCard({
@@ -40,17 +40,16 @@ export default function MenuCard({
   description,
   price,
   imageUrl,
-  imageAlt = '',
+  imageAlt = "",
   featured = false,
-  variant = 'mockup',
+  variant = "mockup",
 }: MenuCardProps) {
   const formattedPrice = formatPrice(price);
 
   // Mockup style - matches the menu-page.png design (circular image, centered text)
-  if (variant === 'mockup') {
+  if (variant === "mockup") {
     return (
       <div className="menu-card-mockup group">
-        {/* Circular Image */}
         <div className="relative">
           {featured && (
             <div className="absolute -top-1 -right-1 z-10 bg-bep-red text-white text-xs px-2 py-0.5 rounded-full font-semibold">
@@ -101,9 +100,7 @@ export default function MenuCard({
 
         {/* Description - only show if provided and variant is detailed */}
         {description && (
-          <p className="text-bep-brown-light text-sm mb-3 line-clamp-2 leading-relaxed">
-            {getDescriptionText(description)}
-          </p>
+          <p className="text-bep-brown-light text-sm mb-3 line-clamp-2 leading-relaxed">{getDescriptionText(description)}</p>
         )}
 
         {/* Price */}
