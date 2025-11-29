@@ -62,34 +62,34 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-bep-cream pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 to-red-700 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Liên Hệ</h1>
-          <p className="text-xl md:text-2xl text-red-100 max-w-2xl mx-auto">
+      <section className="bg-bep-brown text-bep-cream py-16 md:py-20">
+        <div className="bh-container text-center">
+          <h1 className="text-4xl md:text-5xl font-heading font-semibold mb-4">Liên Hệ</h1>
+          <p className="text-lg md:text-xl text-bep-cream-light max-w-2xl mx-auto font-body">
             Chúng tôi rất mong được phục vụ bạn
           </p>
         </div>
       </section>
 
       {/* Contact Content */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      <section className="bh-section">
+        <div className="bh-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8 md:p-10">
+              <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">
                 Gửi Tin Nhắn
               </h2>
 
               {/* Success/Error Message */}
               {submitStatus.type && (
                 <div
-                  className={`mb-6 p-4 rounded-lg ${
+                  className={`mb-6 p-4 rounded-bep font-body ${
                     submitStatus.type === 'success'
-                      ? 'bg-green-50 border border-green-200 text-green-800'
-                      : 'bg-red-50 border border-red-200 text-red-800'
+                      ? 'bg-bep-herb-light/20 border border-bep-herb text-bep-herb-dark'
+                      : 'bg-bep-red-light/20 border border-bep-red text-bep-red-dark'
                   }`}
                 >
                   <p className="flex items-center">
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
                   >
                     Họ và tên <span className="text-red-600">*</span>
                   </label>
@@ -136,15 +136,15 @@ export default function ContactPage() {
                     {...register('name')}
                     type="text"
                     id="name"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                       errors.name
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-bep-red bg-bep-red-light/10'
+                        : 'border-bep-bamboo/30 bg-bep-cream'
                     }`}
                     placeholder="Nguyễn Văn A"
                   />
                   {errors.name && (
-                    <p className="mt-2 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-bep-red font-body">
                       {errors.name.message}
                     </p>
                   )}
@@ -154,7 +154,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
                   >
                     Email <span className="text-red-600">*</span>
                   </label>
@@ -162,15 +162,15 @@ export default function ContactPage() {
                     {...register('email')}
                     type="email"
                     id="email"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                       errors.email
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-bep-red bg-bep-red-light/10'
+                        : 'border-bep-bamboo/30 bg-bep-cream'
                     }`}
                     placeholder="email@example.com"
                   />
                   {errors.email && (
-                    <p className="mt-2 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-bep-red font-body">
                       {errors.email.message}
                     </p>
                   )}
@@ -180,7 +180,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
                   >
                     Số điện thoại <span className="text-red-600">*</span>
                   </label>
@@ -188,15 +188,15 @@ export default function ContactPage() {
                     {...register('phone')}
                     type="tel"
                     id="phone"
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all ${
+                    className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
                       errors.phone
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-bep-red bg-bep-red-light/10'
+                        : 'border-bep-bamboo/30 bg-bep-cream'
                     }`}
                     placeholder="0901234567"
                   />
                   {errors.phone && (
-                    <p className="mt-2 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-bep-red font-body">
                       {errors.phone.message}
                     </p>
                   )}
@@ -206,7 +206,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
                   >
                     Tin nhắn <span className="text-red-600">*</span>
                   </label>
@@ -216,13 +216,13 @@ export default function ContactPage() {
                     rows={6}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all resize-none ${
                       errors.message
-                        ? 'border-red-300 bg-red-50'
-                        : 'border-gray-300'
+                        ? 'border-bep-red bg-bep-red-light/10'
+                        : 'border-bep-bamboo/30 bg-bep-cream'
                     }`}
                     placeholder="Nội dung tin nhắn của bạn..."
                   />
                   {errors.message && (
-                    <p className="mt-2 text-sm text-red-600">
+                    <p className="mt-2 text-sm text-bep-red font-body">
                       {errors.message.message}
                     </p>
                   )}
@@ -232,7 +232,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="btn-primary-red w-full py-4 px-6 disabled:bg-bep-brown-light disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -268,17 +268,17 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div className="space-y-8">
               {/* Info Card */}
-              <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8">
+                <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">
                   Thông Tin Liên Hệ
                 </h2>
 
                 <div className="space-y-6">
                   {/* Address */}
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-bep-bamboo/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-6 h-6 text-red-600"
+                        className="w-6 h-6 text-bep-red"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -291,10 +291,10 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
                         Địa chỉ
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-bep-brown-light font-body">
                         123 Nguyen Hue Street
                         <br />
                         District 1, Ho Chi Minh City
@@ -304,9 +304,9 @@ export default function ContactPage() {
 
                   {/* Phone */}
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-bep-bamboo/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-6 h-6 text-red-600"
+                        className="w-6 h-6 text-bep-red"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -318,10 +318,10 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
                         Điện thoại
                       </h3>
-                      <p className="text-gray-600">+84 28 1234 5678</p>
+                      <p className="text-bep-brown-light font-body">+84 28 1234 5678</p>
                       <p className="text-sm text-gray-500 mt-1">
                         Thứ 2 - Chủ nhật: 10:00 - 22:00
                       </p>
@@ -330,9 +330,9 @@ export default function ContactPage() {
 
                   {/* Email */}
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-bep-bamboo/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-6 h-6 text-red-600"
+                        className="w-6 h-6 text-bep-red"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -344,18 +344,18 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
                         Email
                       </h3>
-                      <p className="text-gray-600">contact@bephue.vn</p>
+                      <p className="text-bep-brown-light font-body">contact@bephue.vn</p>
                     </div>
                   </div>
 
                   {/* Hours */}
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-bep-bamboo/20 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
-                        className="w-6 h-6 text-red-600"
+                        className="w-6 h-6 text-bep-red"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -367,7 +367,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
                         Giờ mở cửa
                       </h3>
                       <div className="text-gray-600 space-y-1">
@@ -381,12 +381,12 @@ export default function ContactPage() {
               </div>
 
               {/* Map Placeholder */}
-              <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8">
+                <h3 className="text-2xl font-heading font-semibold text-bep-brown mb-4">
                   Vị trí
                 </h3>
-                <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <div className="text-center text-gray-500">
+                <div className="w-full h-64 bg-bep-cream rounded-bep flex items-center justify-center border border-bep-bamboo/20">
+                  <div className="text-center text-bep-brown-light">
                     <svg
                       className="w-16 h-16 mx-auto mb-2"
                       fill="none"
@@ -409,15 +409,15 @@ export default function ContactPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-red-600 to-red-700 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Đặt Bàn Ngay</h2>
-          <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
+      <section className="bh-section bg-bep-brown text-bep-cream">
+        <div className="bh-container text-center">
+          <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-4">Đặt Bàn Ngay</h2>
+          <p className="text-lg mb-8 text-bep-cream-light max-w-2xl mx-auto font-body">
             Không cần chờ đợi, đặt bàn trước để có trải nghiệm tốt nhất
           </p>
           <a
             href="/reservation"
-            className="inline-block bg-white text-red-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors duration-300"
+            className="btn-outline-gold inline-block text-lg"
           >
             Đặt Bàn Ngay
           </a>

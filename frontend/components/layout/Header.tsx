@@ -12,7 +12,6 @@ export default function Header() {
     { href: '/', label: 'Trang chủ' },
     { href: '/menu', label: 'Thực đơn' },
     { href: '/about', label: 'Về chúng tôi' },
-    { href: '/gallery', label: 'Hình ảnh' },
     { href: '/contact', label: 'Liên hệ' },
   ];
 
