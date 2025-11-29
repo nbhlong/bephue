@@ -467,7 +467,7 @@ p {
 .menu-card-mockup-image {
   width: 140px;
   height: 140px;
-  border-radius: 50%;
+  border-radius: 25%;
   object-fit: cover;
   box-shadow: var(--shadow-bep-md);
   transition: box-shadow 200ms ease, transform 200ms ease;
