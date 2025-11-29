@@ -1,338 +1,337 @@
-🌺 BẾP HUẾ — FULL BRAND ANALYSIS & STYLE DNA
+# 🌺 BẾP HUẾ — Full Brand Analysis & Style DNA
 
-(Core identity · Emotions · Colors · Typography · Imagery · UI direction)
+> Core Identity · Emotions · Colors · Typography · Imagery · UI Direction
 
-1. Brand Essence
-   One-sentence brand identity:
+---
 
-“Bếp Huế đem hương vị Huế xưa — đậm đà, mộc mạc, tinh tế — vào một trải nghiệm hiện đại giữa Sài Gòn.”
+## 1. Brand Essence
 
-Three pillars of the brand:
+### One-Sentence Brand Identity
 
-Authentic Huế Flavors
-Ruốc, sả, ớt Huế, nước lèo ninh nhiều giờ, công thức gia đình.
+> _"Bếp Huế đem hương vị Huế xưa — đậm đà, mộc mạc, tinh tế — vào một trải nghiệm hiện đại giữa Sài Gòn."_
 
-Warm & Rustic Hospitality
-Không gian ấm, gỗ – mây tre – đèn vàng, cảm giác thân thuộc như quán Huế ngoài đời.
+### Three Pillars of the Brand
 
-Premium Yet Approachable
-Chất Huế cung đình, nhẹ nhàng, sang – nhưng vẫn gần gũi và hợp túi tiền.
+| Pillar                        | Description                                                                        |
+| ----------------------------- | ---------------------------------------------------------------------------------- |
+| **Authentic Huế Flavors**     | Ruốc, sả, ớt Huế, nước lèo ninh nhiều giờ, công thức gia đình                      |
+| **Warm & Rustic Hospitality** | Không gian ấm, gỗ – mây tre – đèn vàng, cảm giác thân thuộc như quán Huế ngoài đời |
+| **Premium Yet Approachable**  | Chất Huế cung đình, nhẹ nhàng, sang – nhưng vẫn gần gũi và hợp túi tiền            |
 
-Brand personality:
+### Brand Personality
 
-60% rustic Huế (mộc, gần gũi, thuần vị)
+- **60%** rustic Huế (mộc, gần gũi, thuần vị)
+- **40%** premium royal (tinh tế, trật tự, thanh lịch)
 
-40% premium royal (tinh tế, trật tự, thanh lịch)
+### Keywords
 
-Keywords:
-warm · rustic · cultural · handcrafted · authentic · elegant · calm
+`warm` · `rustic` · `cultural` · `handcrafted` · `authentic` · `elegant` · `calm`
 
-2. Brand Vibe (Emotional Tone)
-   Primary vibe
+---
 
-Cozy, warm, friendly (như đang vào một nhà hàng gia đình Huế)
+## 2. Brand Vibe (Emotional Tone)
 
-Genuine & heartfelt
+### Primary Vibe
 
-Traditional, cultural, full of memories
+- Cozy, warm, friendly (như đang vào một nhà hàng gia đình Huế)
+- Genuine & heartfelt
+- Traditional, cultural, full of memories
+- Not flashy — quietly premium
 
-Not flashy — quietly premium
+### Secondary Vibe
 
-Secondary vibe
+- Clean, modern layout
+- Balanced negative space (không bị nặng như menu poster)
+- Light gold elegance
+- Curated, photography-first
 
-Clean, modern layout
+### What Bếp Huế is NOT
 
-Balanced negative space (không bị nặng như menu poster)
+- ❌ Not neon, not street-food chaotic
+- ❌ Not overly modern minimalism
+- ❌ Not Korean/Japanese overly-white style
+- ❌ Not western-style luxury with black marble
+- ❌ Not Facebook-style "menu poster spam"
 
-Light gold elegance
+---
 
-Curated, photography-first
+## 3. Brand Color System
 
-What Bếp Huế is NOT
+> Based on: restaurant decor, food plating, logo colors, menu PDF palette, real dish photography
 
-Not neon, not street-food chaotic
+### Primary Colors
 
-Not overly modern minimalism
+| Color           | Hex       | Use                              |
+| --------------- | --------- | -------------------------------- |
+| Bếp Huế Red     | `#B42921` | Buttons, accents, highlights     |
+| Rice Beige      | `#F4E8D8` | Section background, hero text bg |
+| Soft Beige      | `#FBF8F3` | Page background                  |
+| Dark Wood Brown | `#4B2E1A` | Titles, text, structure          |
 
-Not Korean/Japanese overly-white style
+### Secondary Colors
 
-Not western-style luxury with black marble
+| Color       | Hex       | Use                                 |
+| ----------- | --------- | ----------------------------------- |
+| Gold Accent | `#D3A86D` | Highlights, separators, CTA outline |
+| Indigo Hue  | `#1C3C57` | Occasional emphasis, patterns       |
 
-Not Facebook-style “menu poster spam”
+### Supporting Neutral Palette
 
-3. Brand Color System
+- Warm gray: `#E6DED3`
+- Deep brown shadows: `rgba(0,0,0,0.08)`
 
-Based on:
+### Color Mood
 
-Your restaurant decor
+Warm · Calm · Earthy · Traditional Huế
 
-Food plating
+---
 
-Logo colors
+## 4. Typography Identity
 
-Menu PDF palette
+### Heading Font (Cultural & Premium)
 
-Real dish photography
+**Primary options:**
 
-Primary Colors
-Color Hex Use
-Bếp Huế Red #B42921 Buttons, accents, highlights
-Rice Beige #F4E8D8 Section background, hero text bg
-Soft Beige #FBF8F3 Page background
-Dark Wood Brown #4B2E1A Titles, text, structure
-Secondary Colors
-Color Hex Use
-Gold Accent #D3A86D Highlights, separators, CTA outline
-Indigo Hue #1C3C57 Occasional emphasis, patterns
-Supporting Neutral Palette
+- Playfair Display
+- Lora
+- Noto Serif _(fallback)_
 
-Warm gray (#E6DED3)
+**Characteristics:**
 
-Deep brown shadows (rgba(0,0,0,0.08))
+- Elegant, royal Huế vibe
+- Matches menu PDF & real vibe
+- Works great for digital & print
 
-Color Mood
+### Body Font (Modern & Clean)
 
-Warm
+**Primary options:**
 
-Calm
+- Inter
+- SF Pro
+- Helvetica Neue
 
-Earthy
+**Characteristics:**
 
-Traditional Huế
+- Clean, readable
+- Balances rustic serif headings
+- Prevents UI from becoming too old-style
 
-4. Typography Identity
-   Heading Font (Cultural & Premium)
+### Font Behavior
 
-Playfair Display
+| Element   | Size                               |
+| --------- | ---------------------------------- |
+| Titles    | `2.2rem – 3.5rem`                  |
+| Body      | `1rem – 1.125rem`                  |
+| Subtitles | Muted gray-brown                   |
+| Accents   | Gold underline for premium feeling |
 
-Lora
+---
 
-Noto Serif (fallback)
+## 5. UI/UX Visual Language
 
-Characteristics:
+### 5.1 Section Layout Philosophy
 
-Elegant, royal Huế vibe
+- Full-width hero
+- Soft beige sections
+- Light separators
+- Visual-first menu grid
+- Generous whitespace
+- Clear modular sections
 
-Matches menu PDF & real vibe
+### 5.2 Components Feel
 
-Works great for digital & print
+| Component | Style                            |
+| --------- | -------------------------------- |
+| Cards     | Soft shadows, rounded `16px`     |
+| Buttons   | Pill-shaped, red or gold outline |
+| Images    | Warm tone, slight zoom on hover  |
+| Icons     | Thin gold outline _(optional)_   |
 
-Body Font (Modern & Clean)
+### 5.3 Website Mood
 
-Inter
+> _"Calm, warm, inviting — but polished."_
 
-SF Pro
+---
 
-Helvetica Neue
+## 6. Imagery Style Guide
 
-Characteristics:
-
-Clean, readable
-
-Balances rustic serif headings
-
-Prevents UI from becoming too old-style
-
-Font Behavior
-
-Titles: 2.2–3.5rem
-
-Body: 1rem–1.125rem
-
-Subtitles muted gray-brown
-
-Gold underline for premium feeling
-
-5. UI/UX Visual Language
-   5.1 Section Layout Philosophy
-
-Full-width hero
-
-Soft beige sections
-
-Light separators
-
-Visual-first menu grid
-
-Generous whitespace
-
-Clear modular sections
-
-5.2 Components Feel
-
-Cards: soft shadows, rounded 16px
-
-Buttons: pill-shaped, red or gold outline
-
-Images: warm tone, slight zoom on hover
-
-Icons: thin gold outline (optional)
-
-5.3 Website Mood:
-
-“Calm, warm, inviting — but polished.”
-
-6. Imagery Style Guide
-   6.1 Food Photography
+### 6.1 Food Photography
 
 Your real photos are already perfect for your brand:
 
-Warm lighting
+- ✅ Warm lighting
+- ✅ Wooden background
+- ✅ Ceramic bowls
+- ✅ Garnished but not messy
+- ✅ Top-down or 45° angle
+- ✅ Natural colors, no oversaturation
 
-Wooden background
+### 6.2 Interior Photography
 
-Ceramic bowls
+- Bamboo lamps
+- Wooden textures
+- Cozy natural shadows
+- Soft-focus depth shot
 
-Garnished but not messy
+### 6.3 What to Avoid
 
-Top-down or 45° angle
+- ❌ Flash photography
+- ❌ Harsh blue-white LED tone
+- ❌ Busy backgrounds
+- ❌ Cluttered composition
 
-Natural colors, no oversaturation
+---
 
-6.2 Interior Photography
+## 7. Brand Texture System
 
-Bamboo lamps
+> Textures should appear only inside photography, not as full backgrounds.
 
-Wooden textures
+### Allowed Subtle Textures
 
-Cozy natural shadows
+- Wood
+- Rattan
+- Banana leaf
+- Ceramic bowl pattern
 
-Soft-focus depth shot
+### Not Allowed
 
-6.3 What to Avoid
+- ❌ Full wood backgrounds on sections
+- ❌ Heavy paper texture
 
-Flash photography
+---
 
-Harsh blue-white LED tone
+## 8. Brand Structure Hierarchy
 
-Busy backgrounds
+### Top Tier Identity
 
-Cluttered composition
+- Hero section with food
+- Serif headline
+- Minimalist layout
 
-7. Brand Texture System
+### Mid Tier Identity
 
-Textures should appear only inside photography, not as full backgrounds.
+- Warm beige background
+- Photo-led content
+- Premium spacing & typography
 
-Allowed subtle textures:
+### Base Identity
 
-Wood
+- Grid-based layout
+- Simple cards
+- Soft shadow + light golden accents
 
-Rattan
+---
 
-Banana leaf
+## 9. Brand Voice (Copywriting)
 
-Ceramic bowl pattern
+### Tone
 
-Not allowed:
+- Friendly
+- Authentic
+- Slightly poetic (Huế vibe)
+- Not salesy
+- Not modern slang
 
-Full wood backgrounds on sections
+### Example Transformation
 
-Heavy paper texture
+| Before                                     | After (Brand Fit)                                                          |
+| ------------------------------------------ | -------------------------------------------------------------------------- |
+| "Bún bò Huế chuẩn vị, giá rẻ, ngon bổ rẻ!" | "Bát bún bò Huế đậm vị ruốc, cay thơm mùi sả — hương vị quê nhà trọn vẹn." |
 
-8. Brand Structure Hierarchy
-   Top Tier Identity
+---
 
-Hero section with food
+## 10. Brand UX Patterns
 
-Serif headline
+### Good UX for Bếp Huế
 
-Minimalist layout
+- ✅ Smooth fade animations
+- ✅ Grid menus
+- ✅ Soft color transitions
+- ✅ Sticky category filter with beige background
 
-Mid Tier Identity
+### Avoid
 
-Warm beige background
+- ❌ Heavy shadows
+- ❌ Loud red backgrounds
+- ❌ Poster-like layouts
+- ❌ Multi-color elements
 
-Photo-led content
+---
 
-Premium spacing & typography
+## 11. Summary of Bếp Huế Brand DNA
 
-Base Identity
+| Category             | Description                                               |
+| -------------------- | --------------------------------------------------------- |
+| **Core Identity**    | Authentic Huế cuisine with warm, elegant, rustic ambiance |
+| **Vibe**             | Cozy, earthy, heartfelt, slightly premium                 |
+| **Primary Colors**   | Bếp Huế red, rice beige, soft beige, wood brown           |
+| **Secondary Colors** | Gold, indigo                                              |
+| **Typography**       | Serif + Inter combo                                       |
+| **Imagery**          | Warm food shots, wood, ceramic, top-down                  |
+| **UI Style**         | Clean beige sections, red buttons, gold accents, cards    |
+| **Tone of Voice**    | Warm, poetic, authentic                                   |
 
-Grid-based layout
+---
 
-Simple cards
+## 12. Brand Slogan Suggestions
 
-Soft shadow + light golden accents
+- _"Đậm vị Huế xưa, trọn tình quê nhà."_
+- _"Hương xưa trong từng bát bún."_
+- _"Ẩm thực Huế — mộc mạc mà tinh tế."_
+- _"Mang Huế vào từng món ăn."_
 
-9. Brand Voice (Copywriting)
-   Tone:
+---
 
-Friendly
+## ✔️ Complete Brand Package Ready
 
-Authentic
+This is your official **Bếp Huế Brand Analysis**.
 
-Slightly poetic (Huế vibe)
+It's now consistent across:
 
-Not salesy
+- Hero images
+- Menu pages
+- About pages
+- UI/UX
+- Content tone
+- Colors
+- Typography
+- Photography direction
 
-Not modern slang
+---
 
-Examples:
+## Additional Observations (Mockups + Real Photos)
 
-Before:
-“Bún bò Huế chuẩn vị, giá rẻ, ngon bổ rẻ!”
+- **Lighting:** Golden-hour warm; shadows are soft, not harsh; avoid cool tones
+- **Props:** Wood/rattan/ceramic with subtle indigo bowls; color pops from chili/herbs
+- **Hero:** Single main bowl with blurred props; foreground text is warm cream on dark wood with thin gold ornaments
+- **CTAs:** Pill-shaped — primary deep red with white text; secondary cream with gold outline and brown text
+- **Typography:** Large serif headings; sans body copy with generous line-height; warm cream text on dark, brown on light sections
 
-After (brand fit):
-“Bát bún bò Huế đậm vị ruốc, cay thơm mùi sả — hương vị quê nhà trọn vẹn.”
+---
 
-10. Brand UX Patterns
-    Good UX for Bếp Huế:
+## Current Gaps vs. Ideal
 
-Smooth fade animations
+| Gap           | Issue                                                                                        |
+| ------------- | -------------------------------------------------------------------------------------------- |
+| Color palette | Some sections still rely on generic whites/grays; ensure warm cream/brown palette everywhere |
+| Buttons       | Not yet consistently red/gold pill styles across all components                              |
+| Text encoding | Encoding issues remain in some text; Vietnamese copy needs cleanup                           |
+| Images        | Loading depends on correct Strapi URLs and Next image config; keep consistent                |
 
-Grid menus
+---
 
-Soft color transitions
+## Next Steps for Web Restyle
 
-Sticky category filter with beige background
+1. **Palette + Typography Audit** — Swap remaining gray/white backgrounds and black text to brand cream/brown; ensure serif headings everywhere
 
-Avoid:
+2. **CTA Consistency** — Convert all buttons to red primary and gold-outline secondary pills (menu/gallery/reservation/filter controls)
 
-Heavy shadows
+3. **Copy Cleanup** — Fix mojibake across pages/metadata; reapply proper Vietnamese diacritics
 
-Loud red backgrounds
+4. **Imagery** — Use warm real photos for hero/sections; ensure Strapi image URLs are prefixed and allowed in `next.config`
 
-Poster-like layouts
+5. **Ornaments & Dividers** — Add thin gold lines/dividers where appropriate (hero, section headers) without overuse
 
-Multi-color elements
+6. **Section Spacing** — Apply shared container/section spacing utilities (`bh-container`, `bh-section`) for even rhythm
 
-11. Summary of Bếp Huế Brand DNA
-    Category Description
-    Core Identity Authentic Huế cuisine with warm, elegant, rustic ambiance
-    Vibe Cozy, earthy, heartfelt, slightly premium
-    Primary Colors Bếp Huế red, rice beige, soft beige, wood brown
-    Secondary Colors Gold, indigo
-    Typography Serif + Inter combo
-    Imagery Warm food shots, wood, ceramic, top-down
-    UI Style Clean beige sections, red buttons, gold accents, cards
-    Tone of Voice Warm, poetic, authentic
-12. Brand Slogan Suggestions
-
-“Đậm vị Huế xưa, trọn tình quê nhà.”
-
-“Hương xưa trong từng bát bún.”
-
-“Ẩm thực Huế — mộc mạc mà tinh tế.”
-
-“Mang Huế vào từng món ăn.”
-
-✔️ Complete Brand Package Ready
-
-This is your official Bếp Huế Brand Analysis.
-It’s now consistent across:
-
-Hero images
-
-Menu pages
-
-About pages
-
-UI/UX
-
-Content tone
-
-Colors
-
-Typography
-
-Photography direction
+7. **Navigation/Footer** — Align header/footer to brown/cream with gold hovers to match the shell of the brand
