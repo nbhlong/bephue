@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 interface Feature {
@@ -19,20 +18,23 @@ interface FeaturesProps {
 const defaultFeatures: Feature[] = [
   {
     title: "Hương vị cung đình Huế",
-    description: "Thưởng thức những món ăn truyền thống được chế biến theo công thức cổ truyền từ cung đình Huế. Mỗi món ăn đều mang trong mình câu chuyện lịch sử và văn hóa đặc sắc của xứ Huế mộng mơ.",
-    imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80",
+    description:
+      "Thưởng thức món ăn truyền thống được chế biến theo công thức cung đình. Mỗi món đều mang câu chuyện lịch sử và văn hóa xứ Huế mộc mạc, tinh tế.",
+    imageUrl: "/resources/real-images/bun-hen.jpg",
     imageAlt: "Traditional Hue Cuisine",
   },
   {
     title: "Nguyên liệu tươi ngon",
-    description: "Chúng tôi cam kết sử dụng 100% nguyên liệu tươi ngon, được tuyển chọn kỹ lưỡng từ các nguồn cung ứng uy tín. Đảm bảo chất lượng và hương vị tuyệt hảo trong từng món ăn.",
-    imageUrl: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=80",
+    description:
+      "Chúng tôi sử dụng 100% nguyên liệu tươi, tuyển chọn kỹ từ nguồn cung uy tín để đảm bảo hương vị hoàn hảo trong từng món ăn.",
+    imageUrl: "/resources/real-images/combo.JPG",
     imageAlt: "Fresh Ingredients",
   },
   {
-    title: "Không gian thư giãn",
-    description: "Không gian nhà hàng được thiết kế tinh tế, kết hợp giữa nét truyền thống và hiện đại. Tạo nên một môi trường ấm cúng, sang trọng, phù hợp cho những bữa ăn gia đình hoặc tiệc tùng.",
-    imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+    title: "Không gian ấm cúng",
+    description:
+      "Thiết kế hòa quyện truyền thống và hiện đại, tạo nên không gian ấm cúng, sang trọng, phù hợp cho gia đình hoặc tiếp khách.",
+    imageUrl: "/resources/real-images/decor.JPG",
     imageAlt: "Relaxing Ambience",
   },
 ];
@@ -52,7 +54,6 @@ function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
         isReversed ? 'lg:grid-flow-dense' : ''
       }`}
     >
-      {/* Image */}
       <div className={`relative h-[400px] lg:h-[500px] rounded-bep-xl overflow-hidden shadow-bep-xl border-4 border-bep-bamboo/20 ${
         isReversed ? 'lg:col-start-2' : ''
       }`}>
@@ -65,12 +66,11 @@ function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
         />
       </div>
 
-      {/* Content */}
       <div className={isReversed ? 'lg:col-start-1 lg:row-start-1' : ''}>
         <h2 className="text-3xl lg:text-4xl font-heading font-bold text-bep-brown mb-6">
           {feature.title}
         </h2>
-        <p className="text-lg text-bep-charcoal leading-relaxed font-body">
+        <p className="text-lg text-bep-brown leading-relaxed font-body">
           {feature.description}
         </p>
       </div>
@@ -81,12 +81,10 @@ function FeatureItem({ feature, index }: { feature: Feature; index: number }) {
 export default function Features({ features = defaultFeatures }: FeaturesProps) {
   return (
     <section className="py-20 bg-bep-cream">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <div className="space-y-24">
-          {features.map((feature, index) => (
-            <FeatureItem key={index} feature={feature} index={index} />
-          ))}
-        </div>
+      <div className="container mx-auto px-4 max-w-6xl space-y-24">
+        {features.map((feature, index) => (
+          <FeatureItem key={index} feature={feature} index={index} />
+        ))}
       </div>
     </section>
   );

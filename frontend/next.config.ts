@@ -8,6 +8,8 @@ const nextConfig = {
 
   // Image optimization
   images: {
+    // Avoid Next.js blocking private IPs (dev Strapi on localhost) by disabling optimization in that case
+    unoptimized: process.env.NEXT_PUBLIC_API_URL?.includes("localhost") ?? false,
     remotePatterns: [
       // Unsplash (for placeholder images)
       {
@@ -19,6 +21,12 @@ const nextConfig = {
         protocol: "http",
         hostname: "localhost",
         port: "1337",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "1338",
         pathname: "/uploads/**",
       },
       // Production Strapi

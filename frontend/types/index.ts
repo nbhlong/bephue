@@ -2,16 +2,10 @@
 export interface StrapiImage {
   id: number;
   url: string;
+  formats?: Record<string, { url: string; width: number; height: number; size?: number }>;
   alternativeText?: string;
   width: number;
   height: number;
-}
-
-export interface StrapiImageData {
-  data: {
-    id: number;
-    attributes: StrapiImage;
-  } | null;
 }
 
 // Strapi Block Content (Rich Text)
@@ -32,7 +26,7 @@ export interface MenuItem {
   price: number;
   category: "appetizer" | "main" | "dessert" | "drink";
   featured: boolean;
-  image: StrapiImageData | null;
+  image: StrapiImage | null;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -57,7 +51,7 @@ export interface GalleryImage {
   title: string;
   category: "food" | "restaurant" | "event";
   order: number;
-  image: StrapiImageData | null;
+  image: StrapiImage | null;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

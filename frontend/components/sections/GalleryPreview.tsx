@@ -4,8 +4,6 @@ import { getGalleryImages } from '@/lib/api/strapi';
 
 export default async function GalleryPreview() {
   const galleryData = await getGalleryImages();
-
-  // Get first 8 images for preview
   const previewImages = galleryData?.data?.slice(0, 8) || [];
 
   if (!previewImages || previewImages.length === 0) {
@@ -13,42 +11,38 @@ export default async function GalleryPreview() {
   }
 
   return (
-    <section className="py-20 bg-bep-cream">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-bep-brown mb-4">
-            Thư Viện Ảnh
+    <section className="bg-bep-cream py-20">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-4xl font-heading font-bold text-bep-brown md:text-5xl">
+            Thư viện hình ảnh
           </h2>
-          <p className="text-lg md:text-xl text-bep-charcoal max-w-2xl mx-auto font-body">
-            Khám phá không gian ấm cúng và những món ăn hấp dẫn tại BepHue
+          <p className="mx-auto max-w-2xl text-lg text-bep-brown md:text-xl">
+            Khám phá không gian ấm cúng và những món ăn đậm chất Huế tại Bếp Huế.
           </p>
         </div>
 
-        {/* Gallery Grid - Masonry Style */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-4">
           {previewImages.map((image, index) => {
             const imageUrl = image.image?.data?.attributes?.url
               ? `${process.env.NEXT_PUBLIC_API_URL}${image.image.data.attributes.url}`
               : '/images/placeholder-gallery.jpg';
 
-            // Create varied heights for masonry effect
             const heightClass = index % 3 === 0 ? 'h-64' : index % 2 === 0 ? 'h-48' : 'h-56';
 
             return (
               <div
                 key={image.id}
-                className={`group relative ${heightClass} overflow-hidden rounded-bep-xl shadow-bep-lg hover:shadow-bep-xl transition-all duration-300 border-2 border-bep-bamboo/20`}
+                className={`group relative ${heightClass} overflow-hidden rounded-bep-xl border-2 border-bep-bamboo/20 shadow-bep-lg transition-all duration-300 hover:shadow-bep-xl`}
               >
                 <Image
                   src={imageUrl}
                   alt={image.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-bep-brown bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-bep-cream font-heading font-semibold text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-4 text-center">
+                <div className="absolute inset-0 flex items-center justify-center bg-bep-brown/0 transition-all duration-300 group-hover:bg-bep-brown/60">
+                  <span className="px-4 text-center font-heading text-lg font-semibold text-bep-cream opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     {image.title}
                   </span>
                 </div>
@@ -57,13 +51,9 @@ export default async function GalleryPreview() {
           })}
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center mt-12">
-          <Link
-            href="/gallery"
-            className="inline-block bg-bep-red hover:bg-bep-red-dark text-white font-bold px-8 py-4 rounded-bep-lg text-lg transition-all duration-300 shadow-bep-lg hover:shadow-bep-glow hover:scale-105"
-          >
-            Xem Thêm Hình Ảnh
+        <div className="mt-12 text-center">
+          <Link href="/gallery" className="btn-primary-red text-lg">
+            Xem thêm hình ảnh
           </Link>
         </div>
       </div>

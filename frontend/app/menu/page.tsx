@@ -67,7 +67,7 @@ export default function MenuPage() {
           </div>
 
           <div className="hidden md:block overflow-hidden rounded-bh-xl shadow-bh-soft">
-            <img src="/images/menu-hero.jpg" alt="Món Huế tại Bếp Huế" className="h-full w-full object-cover" />
+            <img src="/resources/mockups/hero.png" alt="Món Huế tại Bếp Huế" className="h-full w-full object-cover" />
           </div>
         </div>
       </section>
@@ -89,8 +89,8 @@ export default function MenuPage() {
                   name={item.name}
                   description={item.description}
                   price={item.price}
-                  imageUrl={item.image?.data?.attributes?.url || ""}
-                  imageAlt={item.image?.data?.attributes?.alternativeText}
+                  imageUrl={item.image?.url || ""}
+                  imageAlt={item.image?.alternativeText}
                   featured={true}
                 />
               ))}
@@ -144,17 +144,21 @@ export default function MenuPage() {
               </div>
 
               <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {menuItems.data.map((item) => (
-                  <MenuCard
-                    key={item.id}
-                    name={item.name}
-                    description={item.description}
-                    price={item.price}
-                    imageUrl={item.image?.data?.attributes?.url || ""}
-                    imageAlt={item.image?.data?.attributes?.alternativeText}
-                    featured={item.featured}
-                  />
-                ))}
+                {menuItems.data.map((item) => {
+                  console.log(item.image);
+
+                  return (
+                    <MenuCard
+                      key={item.id}
+                      name={item.name}
+                      description={item.description}
+                      price={item.price}
+                      imageUrl={item.image?.url || ""}
+                      imageAlt={item.image?.alternativeText}
+                      featured={item.featured}
+                    />
+                  );
+                })}
               </div>
             </>
           )}
