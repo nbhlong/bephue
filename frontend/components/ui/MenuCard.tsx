@@ -6,11 +6,13 @@ import { StrapiTextBlock } from '@/types';
 
 interface MenuCardProps {
   name: string;
-  description: string | StrapiTextBlock[];
+  description?: string | StrapiTextBlock[];
   price: number;
   imageUrl: string;
   imageAlt?: string;
   featured?: boolean;
+  /** Use mockup style (circular image, minimal text) - default for menu grid */
+  variant?: 'default' | 'mockup' | 'detailed';
 }
 
 // Helper function to get text from description
@@ -28,6 +30,11 @@ function getDescriptionText(description: string | StrapiTextBlock[]): string {
   return strapiBlocksToText(description);
 }
 
+// Format price to Vietnamese Dong (short format like "80.000đ")
+function formatPrice(price: number): string {
+  return new Intl.NumberFormat('vi-VN').format(price) + 'đ';
+}
+
 export default function MenuCard({
   name,
   description,
@@ -35,15 +42,42 @@ export default function MenuCard({
   imageUrl,
   imageAlt = '',
   featured = false,
+  variant = 'mockup',
 }: MenuCardProps) {
-  // Format price to Vietnamese Dong
-  const formattedPrice = new Intl.NumberFormat('vi-VN', {
-    style: 'currency',
-    currency: 'VND',
-  }).format(price);
+  const formattedPrice = formatPrice(price);
 
+  // Mockup style - matches the menu-page.png design (circular image, centered text)
+  if (variant === 'mockup') {
+    return (
+      <div className="menu-card-mockup group">
+        {/* Circular Image */}
+        <div className="relative">
+          {featured && (
+            <div className="absolute -top-1 -right-1 z-10 bg-bep-red text-white text-xs px-2 py-0.5 rounded-full font-semibold">
+              Đặc biệt
+            </div>
+          )}
+          <Image
+            src={getStrapiImageUrl(imageUrl)}
+            alt={imageAlt || name}
+            width={160}
+            height={160}
+            className="menu-card-mockup-image"
+          />
+        </div>
+
+        {/* Name */}
+        <h3 className="menu-card-mockup-name">{name}</h3>
+
+        {/* Price */}
+        <p className="menu-card-mockup-price">{formattedPrice}</p>
+      </div>
+    );
+  }
+
+  // Detailed style - for featured section or full menu view
   return (
-    <div className="group relative bg-bep-cream rounded-bep-xl shadow-bep-lg overflow-hidden hover:shadow-bep-xl transition-all duration-300 hover:-translate-y-1 border-2 border-bep-bamboo/30">
+    <div className="group relative bg-bep-cream rounded-bep-xl shadow-bep-lg overflow-hidden hover:shadow-bep-xl transition-all duration-300 hover:-translate-y-1 border border-bep-bamboo/20">
       {featured && (
         <div className="absolute top-4 right-4 z-10 bg-bep-red text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-bep">
           Đặc biệt
@@ -51,7 +85,7 @@ export default function MenuCard({
       )}
 
       {/* Image */}
-      <div className="relative h-64 w-full overflow-hidden bg-bep-cream-dark">
+      <div className="relative h-56 w-full overflow-hidden bg-bep-cream-dark">
         <Image
           src={getStrapiImageUrl(imageUrl)}
           alt={imageAlt || name}
@@ -62,17 +96,19 @@ export default function MenuCard({
       </div>
 
       {/* Content */}
-      <div className="p-6 bg-bep-cream">
-        <h3 className="text-2xl font-heading font-bold text-bep-brown mb-2">{name}</h3>
+      <div className="p-5 bg-bep-cream">
+        <h3 className="text-xl font-heading font-semibold text-bep-brown mb-2">{name}</h3>
 
-        {/* Description */}
-        <p className="text-bep-charcoal mb-4 line-clamp-3 font-body leading-relaxed">
-          {getDescriptionText(description)}
-        </p>
+        {/* Description - only show if provided and variant is detailed */}
+        {description && (
+          <p className="text-bep-brown-light text-sm mb-3 line-clamp-2 leading-relaxed">
+            {getDescriptionText(description)}
+          </p>
+        )}
 
         {/* Price */}
-        <div className="flex items-center justify-between pt-2 border-t border-bep-bamboo/30">
-          <span className="text-3xl font-bold text-bep-red">{formattedPrice}</span>
+        <div className="flex items-center justify-between pt-3 border-t border-bep-bamboo/20">
+          <span className="text-xl font-bold text-bep-red">{formattedPrice}</span>
         </div>
       </div>
     </div>

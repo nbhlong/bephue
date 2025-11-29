@@ -311,27 +311,93 @@ It's now consistent across:
 
 ## Current Gaps vs. Ideal
 
-| Gap           | Issue                                                                                        |
-| ------------- | -------------------------------------------------------------------------------------------- |
-| Color palette | Some sections still rely on generic whites/grays; ensure warm cream/brown palette everywhere |
-| Buttons       | Not yet consistently red/gold pill styles across all components                              |
-| Text encoding | Encoding issues remain in some text; Vietnamese copy needs cleanup                           |
-| Images        | Loading depends on correct Strapi URLs and Next image config; keep consistent                |
+| Gap | Current State | Ideal State | Priority |
+| --- | ------------- | ----------- | -------- |
+| **Color palette** | Tailwind theme defined with brand colors (`bep-red`, `bep-cream`, `bep-brown`, `bep-bamboo`). Some components may still use generic whites/grays. | Warm cream (`#F5EBD9`) backgrounds everywhere; brown (`#4A3829`) text; no pure white or cold grays | High |
+| **Buttons** | `.btn-primary-red` and `.btn-outline-gold` utilities exist in globals.css | All interactive elements use consistent pill-shaped buttons with proper hover states | High |
+| **Typography** | Playfair Display (headings) + Inter (body) configured. Font sizes defined in theme. | Serif headings with generous letter-spacing; sans body with 1.7+ line-height for Vietnamese diacritics | Medium |
+| **Menu Page** | Not yet implemented | Match mockup: cream background, "MÓN ĐẶC BIỆT" featured section, 3-column grid, category tabs at bottom | High |
+| **Category Filters** | Not implemented | Horizontal pill tabs with gold border on active state (see mockup: KHAI VỊ, MÓN CHÍNH, MÓN BÚN, etc.) | High |
+| **Menu Cards** | Not implemented | Circular/rounded food images, dish name in brown serif, price in muted gold, soft shadow on hover | High |
+| **Ornaments** | `.gold-underline` and `.ornament-line` utilities exist | Thin gold decorative lines under section headings; subtle but present | Low |
+| **Images** | Need proper Strapi URL config and Next.js image optimization | Warm-toned food photography, consistent aspect ratios, lazy loading | Medium |
+| **Shadows** | Brand shadows defined (`shadow-bep-*`) | Warm brown-tinted shadows (`rgb(74 56 41 / 0.1)`) instead of default gray | Medium |
 
 ---
 
 ## Next Steps for Web Restyle
 
-1. **Palette + Typography Audit** — Swap remaining gray/white backgrounds and black text to brand cream/brown; ensure serif headings everywhere
+### Phase 1: Menu Page (Priority)
 
-2. **CTA Consistency** — Convert all buttons to red primary and gold-outline secondary pills (menu/gallery/reservation/filter controls)
+Reference: `frontend/public/resources/mockups/menu-page.png`
 
-3. **Copy Cleanup** — Fix mojibake across pages/metadata; reapply proper Vietnamese diacritics
+1. **Menu Page Layout**
+   - Cream background (`bg-bep-cream`)
+   - Page title "BẾP HUẾ MENU" in brown serif, centered
+   - Thin gold ornament line below title
 
-4. **Imagery** — Use warm real photos for hero/sections; ensure Strapi image URLs are prefixed and allowed in `next.config`
+2. **Featured Section ("MÓN ĐẶC BIỆT")**
+   - Section header with decorative border/badge styling
+   - 3-column responsive grid (3 cols on desktop, 2 on tablet, 1 on mobile)
+   - Featured items: Bún Bò Huế, Cơm Hến, Nem Lụi, etc.
 
-5. **Ornaments & Dividers** — Add thin gold lines/dividers where appropriate (hero, section headers) without overuse
+3. **Menu Item Cards**
+   - Circular or rounded-square food image (aspect-ratio: 1/1)
+   - Dish name: brown serif font, centered below image
+   - Price: muted gold/terracotta color, smaller text
+   - Subtle hover effect: slight lift + shadow increase
 
-6. **Section Spacing** — Apply shared container/section spacing utilities (`bh-container`, `bh-section`) for even rhythm
+4. **Category Tabs**
+   - Horizontal scrollable on mobile
+   - Pill-shaped tabs with gold border
+   - Categories from mockup: KHAI VỊ | MÓN CHÍNH | MÓN BÚN | BÁNH HUẾ | ĐỒ UỐNG
+   - Active state: filled background or stronger border
 
-7. **Navigation/Footer** — Align header/footer to brown/cream with gold hovers to match the shell of the brand
+### Phase 2: Component Consistency
+
+5. **Global Button Audit**
+   - Ensure all CTAs use `.btn-primary-red` or `.btn-outline-gold`
+   - Add focus states for accessibility
+   - Consistent padding: `py-3 px-6` for medium, `py-4 px-8` for large
+
+6. **Header/Footer Alignment**
+   - Header: cream/transparent background, brown text, gold hover accents
+   - Footer: brown background, cream text, organized link sections
+
+7. **Section Spacing Utilities**
+   - Create `.bh-section` for consistent vertical padding (`py-16 md:py-24`)
+   - Create `.bh-container` for max-width + horizontal padding
+
+### Phase 3: Other Pages
+
+8. **Home Page Integration**
+   - Hero section (already styled)
+   - Menu preview section linking to full menu
+   - Gallery preview with warm image grid
+   - Reservation CTA section
+
+9. **Gallery Page**
+   - Masonry or grid layout
+   - Lightbox for image viewing
+   - Category filtering similar to menu
+
+10. **About & Contact Pages**
+    - Story section with alternating image/text
+    - Contact form with brand-styled inputs
+    - Map integration with warm overlay
+
+### Phase 4: Polish
+
+11. **Vietnamese Text Cleanup**
+    - Audit all hardcoded text for proper diacritics
+    - Ensure UTF-8 encoding throughout
+
+12. **Animation & Micro-interactions**
+    - Smooth fade-in on scroll (use existing `animate-fade-in`)
+    - Subtle hover transitions on cards and buttons
+    - Loading states with brand colors
+
+13. **Performance & SEO**
+    - Image optimization with Next.js Image component
+    - Proper meta tags with Vietnamese content
+    - Structured data for restaurant schema

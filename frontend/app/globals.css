@@ -294,3 +294,207 @@ p {
   border-left: none;
   border-bottom: none;
 }
+
+/* ============================================
+   BH- UTILITY CLASSES (Bếp Huế Layout System)
+   ============================================ */
+
+/* Container - max-width with horizontal padding */
+.bh-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bh-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section - consistent vertical padding */
+.bh-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .bh-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section title - brown serif heading */
+.bh-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: var(--color-bep-brown);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .bh-section-title {
+    font-size: 2.25rem;
+  }
+}
+
+/* Section subtitle */
+.bh-section-subtitle {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: var(--color-bep-brown-light);
+  text-align: center;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section underline - gold decorative line */
+.bh-section-underline {
+  width: 80px;
+  height: 2px;
+  margin: 1.5rem auto 0;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 20%, var(--color-gold) 80%, transparent 100%);
+}
+
+/* ============================================
+   BH- COLOR ALIASES (for legacy bh-* usage)
+   ============================================ */
+
+/* Background colors */
+.bg-bh-beige { background-color: var(--color-bep-cream); }
+.bg-bh-beige-soft { background-color: var(--color-bep-cream-light); }
+.bg-bh-brown { background-color: var(--color-bep-brown); }
+.bg-bh-red { background-color: var(--color-bep-red); }
+
+/* Text colors */
+.text-bh-brown { color: var(--color-bep-brown); }
+.text-bh-text-main { color: var(--color-bep-brown); }
+.text-bh-text-muted { color: var(--color-bep-brown-light); }
+.text-bh-red { color: var(--color-bep-red); }
+
+/* Border colors */
+.border-bh-gold { border-color: var(--color-gold); }
+
+/* Shadows */
+.shadow-bh-soft { box-shadow: var(--shadow-bep); }
+
+/* Border radius */
+.rounded-bh-xl { border-radius: var(--radius-bep-xl); }
+
+/* Red soft variant */
+.bg-bh-red-soft { background-color: var(--color-bep-red-light); }
+
+/* ============================================
+   MENU PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* Menu page title */
+.menu-page-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-bep-brown);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .menu-page-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Featured section badge */
+.menu-featured-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1.5px solid var(--color-gold);
+  color: var(--color-bep-brown);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Category tab - default state */
+.menu-category-tab {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-bep-brown);
+  border: 1.5px solid transparent;
+  background: transparent;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.menu-category-tab:hover {
+  color: var(--color-bep-red);
+  border-color: var(--color-gold);
+}
+
+/* Category tab - active state */
+.menu-category-tab.active {
+  border-color: var(--color-gold);
+  background-color: rgba(212, 165, 116, 0.1);
+}
+
+/* Menu card - mockup style (circular image, centered text) */
+.menu-card-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 200ms ease;
+}
+
+.menu-card-mockup:hover {
+  transform: translateY(-4px);
+}
+
+.menu-card-mockup-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-bep-md);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+@media (min-width: 768px) {
+  .menu-card-mockup-image {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.menu-card-mockup:hover .menu-card-mockup-image {
+  box-shadow: var(--shadow-bep-lg);
+  transform: scale(1.03);
+}
+
+.menu-card-mockup-name {
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-bep-brown);
+}
+
+.menu-card-mockup-price {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-bep-terracotta);
+}

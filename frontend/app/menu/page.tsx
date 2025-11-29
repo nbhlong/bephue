@@ -5,13 +5,14 @@ import MenuCard from "@/components/ui/MenuCard";
 import { getMenuItems, getFeaturedMenuItems } from "@/lib/api/strapi";
 import { MenuItemResponse } from "@/types";
 
-type CategoryType = "all" | "appetizer" | "main" | "dessert" | "drink";
+type CategoryType = "all" | "appetizer" | "main" | "noodle" | "banh" | "drink";
 
 const categories = [
   { id: "all", label: "Tất cả", englishLabel: "All" },
   { id: "appetizer", label: "Khai vị", englishLabel: "Appetizers" },
   { id: "main", label: "Món chính", englishLabel: "Main Courses" },
-  { id: "dessert", label: "Tráng miệng", englishLabel: "Desserts" },
+  { id: "noodle", label: "Món bún", englishLabel: "Noodles" },
+  { id: "banh", label: "Bánh Huế", englishLabel: "Hue Cakes" },
   { id: "drink", label: "Đồ uống", englishLabel: "Drinks" },
 ];
 
@@ -51,72 +52,87 @@ export default function MenuPage() {
     fetchData();
   }, [selectedCategory]);
 
-  const activeCategory = categories.find((c) => c.id === selectedCategory);
-
   return (
-    <main className="min-h-screen bg-bh-beige-soft text-bh-text-main">
-      {/* Menu Hero */}
-      <section className="bh-section bg-bh-beige">
-        <div className="bh-container grid gap-8 md:grid-cols-[1.3fr,1fr] items-center">
-          <div>
-            <h1 className="font-serif text-4xl md:text-5xl text-bh-brown">Thực đơn Bếp Huế</h1>
-            <p className="mt-4 text-bh-text-muted leading-relaxed md:text-lg">
-              Từ bún bò Huế, cơm hến đến các loại bánh Huế truyền thống – mỗi món ăn đều được chuẩn bị tươi mới mỗi ngày, giữ
-              trọn hương vị cung đình và dân gian xứ Huế.
-            </p>
-          </div>
-
-          <div className="hidden md:block overflow-hidden rounded-bh-xl shadow-bh-soft">
-            <img src="/resources/mockups/hero.png" alt="Món Huế tại Bếp Huế" className="h-full w-full object-cover" />
-          </div>
+    <main className="min-h-screen bg-bep-cream">
+      {/* Page Title with Ornament */}
+      <section className="pt-12 pb-8 bg-bep-cream">
+        <div className="bh-container text-center">
+          <h1 className="menu-page-title">Bếp Huế Menu</h1>
+          <div className="bh-section-underline mt-4" />
         </div>
       </section>
 
-      {/* Featured Dishes Section */}
-      {selectedCategory === "all" && featuredItems.data.length > 0 && (
-        <section className="bh-section bg-bh-beige-soft pt-0">
+      {/* Featured Dishes Section - "MÓN ĐẶC BIỆT" */}
+      {selectedCategory === "all" && (
+        <section className="py-10 bg-bep-cream">
           <div className="bh-container">
-            <h2 className="bh-section-title">Món đặc biệt</h2>
-            <p className="bh-section-subtitle">
-              Những món ăn tiêu biểu nhất của Bếp Huế – gợi ý hoàn hảo cho lần đầu ghé quán.
-            </p>
-            <div className="bh-section-underline" />
-
-            <div className="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-              {featuredItems.data.map((item) => (
-                <MenuCard
-                  key={item.id}
-                  name={item.name}
-                  description={item.description}
-                  price={item.price}
-                  imageUrl={item.image?.url || ""}
-                  imageAlt={item.image?.alternativeText}
-                  featured={true}
-                />
-              ))}
+            {/* Featured Badge Header */}
+            <div className="text-center mb-10">
+              <span className="menu-featured-badge">Món đặc biệt</span>
             </div>
+
+            {/* Featured Items Grid - 3 columns on desktop */}
+            {loading ? (
+              <div className="py-12 text-center">
+                <div className="inline-block h-10 w-10 animate-spin rounded-full border-3 border-bep-red border-r-transparent" />
+              </div>
+            ) : featuredItems.data.length > 0 ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                {featuredItems.data.slice(0, 6).map((item) => (
+                  <MenuCard
+                    key={item.id}
+                    name={item.name}
+                    price={item.price}
+                    imageUrl={item.image?.url || ""}
+                    imageAlt={item.image?.alternativeText}
+                    featured={true}
+                    variant="mockup"
+                  />
+                ))}
+              </div>
+            ) : (
+              /* Placeholder featured items when no data */
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                {[
+                  { name: "Bún Bò Huế", price: 80000 },
+                  { name: "Cơm Hến", price: 70000 },
+                  { name: "Nem Lụi", price: 90000 },
+                  { name: "Gỏi Tôm Thịt", price: 85000 },
+                  { name: "Chả Ràm Huế", price: 70000 },
+                  { name: "Cơm Chiên Hải Sản", price: 95000 },
+                ].map((item, index) => (
+                  <MenuCard
+                    key={index}
+                    name={item.name}
+                    price={item.price}
+                    imageUrl="/resources/real-images/bun-hen.jpg"
+                    variant="mockup"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </section>
       )}
 
-      {/* Category Filter */}
-      <section className="bg-bh-beige sticky top-0 z-20 border-y border-bh-gold/20">
-        <div className="bh-container py-4">
-          <div className="flex gap-3 overflow-x-auto pb-2 md:justify-center">
-            {categories.map((category) => {
+      {/* Divider line */}
+      <div className="bh-container">
+        <div className="h-px bg-bep-bamboo/30" />
+      </div>
+
+      {/* Category Tabs - Bottom style like mockup */}
+      <section className="py-8 bg-bep-cream">
+        <div className="bh-container">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+            {categories.filter(c => c.id !== "all").map((category) => {
               const isActive = selectedCategory === category.id;
               return (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id as CategoryType)}
-                  className={[
-                    "whitespace-nowrap rounded-full px-5 py-2 text-sm font-semibold transition-all",
-                    isActive
-                      ? "bg-bh-red text-white shadow-bh-soft scale-[1.03]"
-                      : "bg-white text-bh-text-main hover:bg-bh-beige-soft hover:text-bh-red",
-                  ].join(" ")}
+                  className={`menu-category-tab ${isActive ? "active" : ""}`}
                 >
-                  {category.label}
+                  {category.label.toUpperCase()}
                 </button>
               );
             })}
@@ -124,58 +140,65 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* Menu Items Section */}
-      <section className="bh-section bg-bh-beige-soft">
-        <div className="bh-container">
-          {loading ? (
-            <div className="py-20 text-center">
-              <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-bh-red border-r-transparent" />
-              <p className="mt-4 text-bh-text-muted">Đang tải thực đơn...</p>
-            </div>
-          ) : menuItems.data.length === 0 ? (
-            <div className="py-20 text-center">
-              <p className="text-lg text-bh-text-muted">Không tìm thấy món ăn nào.</p>
-            </div>
-          ) : (
-            <>
-              <div className="mb-10 text-center">
-                <h2 className="font-serif text-3xl text-bh-brown">{activeCategory?.label}</h2>
-                <p className="mt-2 text-sm text-bh-text-muted">{menuItems.meta.pagination.total} món ăn</p>
+      {/* Menu Items by Category */}
+      {selectedCategory !== "all" && (
+        <section className="py-10 bg-bep-cream-light">
+          <div className="bh-container">
+            {loading ? (
+              <div className="py-16 text-center">
+                <div className="inline-block h-10 w-10 animate-spin rounded-full border-3 border-bep-red border-r-transparent" />
+                <p className="mt-4 text-bep-brown-light">Đang tải thực đơn...</p>
               </div>
+            ) : menuItems.data.length === 0 ? (
+              <div className="py-16 text-center">
+                <p className="text-lg text-bep-brown-light">Không tìm thấy món ăn nào.</p>
+              </div>
+            ) : (
+              <>
+                {/* Category Title */}
+                <div className="text-center mb-10">
+                  <h2 className="bh-section-title">
+                    {categories.find((c) => c.id === selectedCategory)?.label}
+                  </h2>
+                  <p className="mt-2 text-sm text-bep-brown-light">
+                    {menuItems.meta.pagination.total} món ăn
+                  </p>
+                  <div className="bh-section-underline" />
+                </div>
 
-              <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {menuItems.data.map((item) => {
-                  console.log(item.image);
-
-                  return (
+                {/* Items Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                  {menuItems.data.map((item) => (
                     <MenuCard
                       key={item.id}
                       name={item.name}
-                      description={item.description}
                       price={item.price}
                       imageUrl={item.image?.url || ""}
                       imageAlt={item.image?.alternativeText}
                       featured={item.featured}
+                      variant="mockup"
                     />
-                  );
-                })}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+      )}
 
-      {/* Call to Action */}
-      <section className="bh-section bg-bh-brown">
+      {/* Reservation CTA */}
+      <section className="py-16 bg-bep-brown">
         <div className="bh-container text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-bh-beige-soft">Sẵn sàng thưởng thức hương vị Huế?</h2>
-          <p className="mt-4 text-bh-beige-soft/80 max-w-xl mx-auto">
-            Đặt bàn ngay hôm nay để không bỏ lỡ bát bún bò nóng hổi, đĩa bánh Huế thơm lừng và không gian ấm cúng tại Bếp
-            Huế.
+          <h2 className="font-heading text-2xl md:text-3xl text-bep-cream font-semibold">
+            Sẵn sàng thưởng thức hương vị Huế?
+          </h2>
+          <p className="mt-4 text-bep-cream/80 max-w-lg mx-auto leading-relaxed">
+            Đặt bàn ngay hôm nay để không bỏ lỡ bát bún bò nóng hổi, đĩa bánh Huế thơm lừng
+            và không gian ấm cúng tại Bếp Huế.
           </p>
           <a
             href="/reservation"
-            className="mt-8 inline-block rounded-full bg-bh-red px-8 py-3 text-sm font-semibold text-white shadow-bh-soft hover:bg-bh-red-soft transition-colors"
+            className="btn-primary-red mt-8 inline-block"
           >
             Đặt bàn ngay
           </a>
