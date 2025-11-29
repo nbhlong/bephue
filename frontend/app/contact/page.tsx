@@ -1,23 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { submitContactForm } from '@/lib/api/strapi';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { submitContactForm } from "@/lib/api/strapi";
 
 // Validation schema
 const contactSchema = z.object({
-  name: z.string().min(2, 'Tên phải có ít nhất 2 ký tự').max(100, 'Tên quá dài'),
-  email: z.string().email('Email không hợp lệ'),
+  name: z.string().min(2, "Tên phải có ít nhất 2 ký tự").max(100, "Tên quá dài"),
+  email: z.string().email("Email không hợp lệ"),
   phone: z
     .string()
-    .min(10, 'Số điện thoại phải có ít nhất 10 số')
-    .regex(/^[0-9+\s-()]*$/, 'Số điện thoại không hợp lệ'),
-  message: z
-    .string()
-    .min(10, 'Tin nhắn phải có ít nhất 10 ký tự')
-    .max(1000, 'Tin nhắn quá dài (tối đa 1000 ký tự)'),
+    .min(10, "Số điện thoại phải có ít nhất 10 số")
+    .regex(/^[0-9+\s-()]*$/, "Số điện thoại không hợp lệ"),
+  message: z.string().min(10, "Tin nhắn phải có ít nhất 10 ký tự").max(1000, "Tin nhắn quá dài (tối đa 1000 ký tự)"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -25,9 +22,9 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: 'success' | 'error' | null;
+    type: "success" | "error" | null;
     message: string;
-  }>({ type: null, message: '' });
+  }>({ type: null, message: "" });
 
   const {
     register,
@@ -40,21 +37,20 @@ export default function ContactPage() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: '' });
+    setSubmitStatus({ type: null, message: "" });
 
     try {
       await submitContactForm(data);
       setSubmitStatus({
-        type: 'success',
-        message:
-          'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.',
+        type: "success",
+        message: "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
       });
       reset();
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error("Form submission error:", error);
       setSubmitStatus({
-        type: 'error',
-        message: 'Có lỗi xảy ra. Vui lòng thử lại sau hoặc gọi điện trực tiếp.',
+        type: "error",
+        message: "Có lỗi xảy ra. Vui lòng thử lại sau hoặc gọi điện trực tiếp.",
       });
     } finally {
       setIsSubmitting(false);
@@ -79,26 +75,20 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}
             <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8 md:p-10">
-              <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">
-                Gửi Tin Nhắn
-              </h2>
+              <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">Gửi Tin Nhắn</h2>
 
               {/* Success/Error Message */}
               {submitStatus.type && (
                 <div
                   className={`mb-6 p-4 rounded-bep font-body ${
-                    submitStatus.type === 'success'
-                      ? 'bg-bep-herb-light/20 border border-bep-herb text-bep-herb-dark'
-                      : 'bg-bep-red-light/20 border border-bep-red text-bep-red-dark'
+                    submitStatus.type === "success"
+                      ? "bg-bep-herb-light/20 border border-bep-herb text-bep-herb-dark"
+                      : "bg-bep-red-light/20 border border-bep-red text-bep-red-dark"
                   }`}
                 >
                   <p className="flex items-center">
-                    {submitStatus.type === 'success' ? (
-                      <svg
-                        className="w-5 h-5 mr-2"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
+                    {submitStatus.type === "success" ? (
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -106,11 +96,7 @@ export default function ContactPage() {
                         />
                       </svg>
                     ) : (
-                      <svg
-                        className="w-5 h-5 mr-2"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
@@ -126,106 +112,70 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Name Field */}
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
-                  >
+                  <label htmlFor="name" className="block text-sm font-semibold font-body text-bep-brown mb-2">
                     Họ và tên <span className="text-red-600">*</span>
                   </label>
                   <input
-                    {...register('name')}
+                    {...register("name")}
                     type="text"
                     id="name"
                     className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
-                      errors.name
-                        ? 'border-bep-red bg-bep-red-light/10'
-                        : 'border-bep-bamboo/30 bg-bep-cream'
+                      errors.name ? "border-bep-red bg-bep-red-light/10" : "border-bep-bamboo/30 bg-bep-cream"
                     }`}
                     placeholder="Nguyễn Văn A"
                   />
-                  {errors.name && (
-                    <p className="mt-2 text-sm text-bep-red font-body">
-                      {errors.name.message}
-                    </p>
-                  )}
+                  {errors.name && <p className="mt-2 text-sm text-bep-red font-body">{errors.name.message}</p>}
                 </div>
 
                 {/* Email Field */}
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
-                  >
+                  <label htmlFor="email" className="block text-sm font-semibold font-body text-bep-brown mb-2">
                     Email <span className="text-red-600">*</span>
                   </label>
                   <input
-                    {...register('email')}
+                    {...register("email")}
                     type="email"
                     id="email"
                     className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
-                      errors.email
-                        ? 'border-bep-red bg-bep-red-light/10'
-                        : 'border-bep-bamboo/30 bg-bep-cream'
+                      errors.email ? "border-bep-red bg-bep-red-light/10" : "border-bep-bamboo/30 bg-bep-cream"
                     }`}
                     placeholder="email@example.com"
                   />
-                  {errors.email && (
-                    <p className="mt-2 text-sm text-bep-red font-body">
-                      {errors.email.message}
-                    </p>
-                  )}
+                  {errors.email && <p className="mt-2 text-sm text-bep-red font-body">{errors.email.message}</p>}
                 </div>
 
                 {/* Phone Field */}
                 <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
-                  >
+                  <label htmlFor="phone" className="block text-sm font-semibold font-body text-bep-brown mb-2">
                     Số điện thoại <span className="text-red-600">*</span>
                   </label>
                   <input
-                    {...register('phone')}
+                    {...register("phone")}
                     type="tel"
                     id="phone"
                     className={`w-full px-4 py-3 border rounded-bep font-body focus:ring-2 focus:ring-bep-bamboo focus:border-bep-bamboo transition-all ${
-                      errors.phone
-                        ? 'border-bep-red bg-bep-red-light/10'
-                        : 'border-bep-bamboo/30 bg-bep-cream'
+                      errors.phone ? "border-bep-red bg-bep-red-light/10" : "border-bep-bamboo/30 bg-bep-cream"
                     }`}
                     placeholder="0901234567"
                   />
-                  {errors.phone && (
-                    <p className="mt-2 text-sm text-bep-red font-body">
-                      {errors.phone.message}
-                    </p>
-                  )}
+                  {errors.phone && <p className="mt-2 text-sm text-bep-red font-body">{errors.phone.message}</p>}
                 </div>
 
                 {/* Message Field */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-semibold font-body text-bep-brown mb-2"
-                  >
+                  <label htmlFor="message" className="block text-sm font-semibold font-body text-bep-brown mb-2">
                     Tin nhắn <span className="text-red-600">*</span>
                   </label>
                   <textarea
-                    {...register('message')}
+                    {...register("message")}
                     id="message"
                     rows={6}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all resize-none ${
-                      errors.message
-                        ? 'border-bep-red bg-bep-red-light/10'
-                        : 'border-bep-bamboo/30 bg-bep-cream'
+                      errors.message ? "border-bep-red bg-bep-red-light/10" : "border-bep-bamboo/30 bg-bep-cream"
                     }`}
                     placeholder="Nội dung tin nhắn của bạn..."
                   />
-                  {errors.message && (
-                    <p className="mt-2 text-sm text-bep-red font-body">
-                      {errors.message.message}
-                    </p>
-                  )}
+                  {errors.message && <p className="mt-2 text-sm text-bep-red font-body">{errors.message.message}</p>}
                 </div>
 
                 {/* Submit Button */}
@@ -242,14 +192,7 @@ export default function ContactPage() {
                         fill="none"
                         viewBox="0 0 24 24"
                       >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path
                           className="opacity-75"
                           fill="currentColor"
@@ -259,7 +202,7 @@ export default function ContactPage() {
                       Đang gửi...
                     </>
                   ) : (
-                    'Gửi tin nhắn'
+                    "Gửi tin nhắn"
                   )}
                 </button>
               </form>
@@ -269,9 +212,7 @@ export default function ContactPage() {
             <div className="space-y-8">
               {/* Info Card */}
               <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8">
-                <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">
-                  Thông Tin Liên Hệ
-                </h2>
+                <h2 className="text-3xl font-heading font-semibold text-bep-brown mb-6">Thông Tin Liên Hệ</h2>
 
                 <div className="space-y-6">
                   {/* Address */}
@@ -291,9 +232,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
-                        Địa chỉ
-                      </h3>
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">Địa chỉ</h3>
                       <p className="text-bep-brown-light font-body">
                         123 Nguyen Hue Street
                         <br />
@@ -318,13 +257,9 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
-                        Điện thoại
-                      </h3>
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">Điện thoại</h3>
                       <p className="text-bep-brown-light font-body">+84 28 1234 5678</p>
-                      <p className="text-sm text-gray-500 mt-1">
-                        Thứ 2 - Chủ nhật: 10:00 - 22:00
-                      </p>
+                      <p className="text-sm text-gray-500 mt-1">Thứ 2 - Chủ nhật: 10:00 - 22:00</p>
                     </div>
                   </div>
 
@@ -344,9 +279,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
-                        Email
-                      </h3>
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">Email</h3>
                       <p className="text-bep-brown-light font-body">contact@bephue.vn</p>
                     </div>
                   </div>
@@ -367,9 +300,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">
-                        Giờ mở cửa
-                      </h3>
+                      <h3 className="text-lg font-heading font-semibold text-bep-brown mb-1">Giờ mở cửa</h3>
                       <div className="text-gray-600 space-y-1">
                         <p>Thứ 2 - Thứ 5: 10:00 - 22:00</p>
                         <p>Thứ 6 - Thứ 7: 10:00 - 22:30</p>
@@ -380,27 +311,20 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Map */}
               <div className="bg-bep-cream-light rounded-bep-xl shadow-bep-lg border border-bep-bamboo/20 p-8">
-                <h3 className="text-2xl font-heading font-semibold text-bep-brown mb-4">
-                  Vị trí
-                </h3>
-                <div className="w-full h-64 bg-bep-cream rounded-bep flex items-center justify-center border border-bep-bamboo/20">
-                  <div className="text-center text-bep-brown-light">
-                    <svg
-                      className="w-16 h-16 mx-auto mb-2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <p className="text-sm">Bản đồ Google Maps</p>
-                  </div>
+                <h3 className="text-2xl font-heading font-semibold text-bep-brown mb-4">Vị trí</h3>
+                <div className="w-full h-64 rounded-bep overflow-hidden border border-bep-bamboo/20">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2679867440743!2d106.69135059999999!3d10.790775199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528ccdda0b5d7%3A0xc7a13f5ff2096e80!2zQuG6v3AgSHXhur8!5e0!3m2!1sen!2s!4v1764426566087!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Bếp Huế Location"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -415,10 +339,7 @@ export default function ContactPage() {
           <p className="text-lg mb-8 text-bep-cream-light max-w-2xl mx-auto font-body">
             Không cần chờ đợi, đặt bàn trước để có trải nghiệm tốt nhất
           </p>
-          <a
-            href="/reservation"
-            className="btn-outline-gold inline-block text-lg"
-          >
+          <a href="/reservation" className="btn-outline-gold inline-block text-lg">
             Đặt Bàn Ngay
           </a>
         </div>
