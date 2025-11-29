@@ -53,7 +53,7 @@ export default function MenuPage() {
   }, [selectedCategory]);
 
   return (
-    <main className="min-h-screen bg-bep-cream">
+    <main className="min-h-screen bg-bep-cream pt-20">
       {/* Page Title with Ornament */}
       <section className="pt-12 pb-8 bg-bep-cream">
         <div className="bh-container text-center">
@@ -62,9 +62,31 @@ export default function MenuPage() {
         </div>
       </section>
 
+      {/* Category Tabs - top style like mockup */}
+      <section className="bg-bep-cream">
+        <div className="bh-container">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
+            {categories
+              .filter((c) => c.id !== "all")
+              .map((category) => {
+                const isActive = selectedCategory === category.id;
+                return (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id as CategoryType)}
+                    className={`menu-category-tab ${isActive ? "active" : ""}`}
+                  >
+                    {category.label.toUpperCase()}
+                  </button>
+                );
+              })}
+          </div>
+        </div>
+      </section>
+
       {/* Featured Dishes Section - "MÓN ĐẶC BIỆT" */}
       {selectedCategory === "all" && (
-        <section className="py-10 bg-bep-cream">
+        <section className="py-7 bg-bep-cream">
           <div className="bh-container">
             {/* Featured Badge Header */}
             <div className="text-center mb-10">
@@ -120,29 +142,9 @@ export default function MenuPage() {
         <div className="h-px bg-bep-bamboo/30" />
       </div>
 
-      {/* Category Tabs - Bottom style like mockup */}
-      <section className="py-8 bg-bep-cream">
-        <div className="bh-container">
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
-            {categories.filter(c => c.id !== "all").map((category) => {
-              const isActive = selectedCategory === category.id;
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id as CategoryType)}
-                  className={`menu-category-tab ${isActive ? "active" : ""}`}
-                >
-                  {category.label.toUpperCase()}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Menu Items by Category */}
       {selectedCategory !== "all" && (
-        <section className="py-10 bg-bep-cream-light">
+        <section className="py-8 bg-bep-cream-light">
           <div className="bh-container">
             {loading ? (
               <div className="py-16 text-center">
@@ -157,12 +159,8 @@ export default function MenuPage() {
               <>
                 {/* Category Title */}
                 <div className="text-center mb-10">
-                  <h2 className="bh-section-title">
-                    {categories.find((c) => c.id === selectedCategory)?.label}
-                  </h2>
-                  <p className="mt-2 text-sm text-bep-brown-light">
-                    {menuItems.meta.pagination.total} món ăn
-                  </p>
+                  <h2 className="bh-section-title">{categories.find((c) => c.id === selectedCategory)?.label}</h2>
+                  <p className="mt-2 text-sm text-bep-brown-light">{menuItems.meta.pagination.total} món ăn</p>
                   <div className="bh-section-underline" />
                 </div>
 
@@ -193,13 +191,10 @@ export default function MenuPage() {
             Sẵn sàng thưởng thức hương vị Huế?
           </h2>
           <p className="mt-4 text-bep-cream/80 max-w-lg mx-auto leading-relaxed">
-            Đặt bàn ngay hôm nay để không bỏ lỡ bát bún bò nóng hổi, đĩa bánh Huế thơm lừng
-            và không gian ấm cúng tại Bếp Huế.
+            Đặt bàn ngay hôm nay để không bỏ lỡ bát bún bò nóng hổi, đĩa bánh Huế thơm lừng và không gian ấm cúng tại Bếp
+            Huế.
           </p>
-          <a
-            href="/reservation"
-            className="btn-primary-red mt-8 inline-block"
-          >
+          <a href="/reservation" className="btn-primary-red mt-8 inline-block">
             Đặt bàn ngay
           </a>
         </div>
