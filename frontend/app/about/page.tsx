@@ -43,7 +43,7 @@ export default async function AboutPage() {
       </section> */}
 
       {/* Story Section */}
-      <section className="bh-section bg-bep-cream">
+      <section className="bh-section bg-bep-cream animate-fade-in">
         <div className="bh-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -76,7 +76,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="bh-section bg-bep-cream-light">
+      <section className="bh-section bg-bep-cream-light animate-fade-in-delay-1">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Giá Trị Cốt Lõi</h2>
@@ -85,8 +85,8 @@ export default async function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Value 1 */}
-            <div className="bg-bep-cream p-8 rounded-bep-xl shadow-bep-lg hover:shadow-bep-xl transition-shadow border border-bep-bamboo/20">
-              <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <div className="bg-bep-cream p-8 rounded-bep-xl shadow-bep-lg hover-lift border border-bep-bamboo/20 group">
+              <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mb-6 mx-auto transition-transform duration-300 group-hover:scale-110">
                 <svg
                   className="w-8 h-8 text-bep-red"
                   fill="none"
@@ -106,8 +106,8 @@ export default async function AboutPage() {
             </div>
 
             {/* Value 2 */}
-            <div className="bg-bep-cream p-8 rounded-bep-xl shadow-bep-lg hover:shadow-bep-xl transition-shadow border border-bep-bamboo/20">
-              <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <div className="bg-bep-cream p-8 rounded-bep-xl shadow-bep-lg hover-lift border border-bep-bamboo/20 group">
+              <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mb-6 mx-auto transition-transform duration-300 group-hover:scale-110">
                 <svg
                   className="w-8 h-8 text-bep-red"
                   fill="none"
@@ -127,8 +127,8 @@ export default async function AboutPage() {
             </div>
 
             {/* Value 3 */}
-            <div className="bg-bep-cream p-8 rounded-bep-xl shadow-bep-lg hover:shadow-bep-xl transition-shadow border border-bep-bamboo/20">
-              <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+            <div className="bg-bep-cream p-8 rounded-bep-xl shadow-bep-lg hover-lift border border-bep-bamboo/20 group">
+              <div className="w-16 h-16 bg-bep-bamboo/20 rounded-full flex items-center justify-center mb-6 mx-auto transition-transform duration-300 group-hover:scale-110">
                 <svg
                   className="w-8 h-8 text-bep-red"
                   fill="none"

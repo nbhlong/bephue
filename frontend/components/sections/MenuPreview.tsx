@@ -29,7 +29,7 @@ export default async function MenuPreview() {
     new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
 
   return (
-    <section className="bh-section bg-bep-cream">
+    <section className="bh-section bg-bep-cream animate-fade-in">
       <div className="bh-container">
         <div className="mb-12 text-center">
           <h2 className="bh-section-title">

@@ -74,7 +74,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Content */}
-      <section className="bh-section">
+      <section className="bh-section animate-fade-in">
         <div className="bh-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Form */}

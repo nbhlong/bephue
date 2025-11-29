@@ -76,7 +76,7 @@ export default function MenuCard({
 
   // Detailed style - for featured section or full menu view
   return (
-    <div className="group relative bg-bep-cream rounded-bep-xl shadow-bep-lg overflow-hidden hover:shadow-bep-xl transition-all duration-300 hover:-translate-y-1 border border-bep-bamboo/20">
+    <div className="group relative bg-bep-cream rounded-bep-xl shadow-bep-lg overflow-hidden hover-lift border border-bep-bamboo/20">
       {featured && (
         <div className="absolute top-4 right-4 z-10 bg-bep-red text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-bep">
           Đặc biệt

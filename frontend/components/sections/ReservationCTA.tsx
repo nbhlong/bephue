@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ReservationCTA() {
   return (
-    <section className="bh-section relative overflow-hidden bg-bep-brown text-bep-cream">
+    <section className="bh-section relative overflow-hidden bg-bep-brown text-bep-cream animate-fade-in">
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-bamboo-pattern" />
       </div>

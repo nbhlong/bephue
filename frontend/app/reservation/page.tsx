@@ -99,7 +99,7 @@ export default function ReservationPage() {
       </section>
 
       {/* Reservation Content */}
-      <section className="bh-section">
+      <section className="bh-section animate-fade-in">
         <div className="bh-container">
           <div className="max-w-4xl mx-auto">
             {/* Info Banner */}
@@ -463,7 +463,7 @@ export default function ReservationPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="bh-section bg-bep-cream-light">
+      <section className="bh-section bg-bep-cream-light animate-fade-in-delay-1">
         <div className="bh-container">
           <div className="max-w-5xl mx-auto">
             <h2 className="bh-section-title mb-12">

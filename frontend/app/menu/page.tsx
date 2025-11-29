@@ -55,7 +55,7 @@ export default function MenuPage() {
   return (
     <main className="min-h-screen bg-bep-cream pt-20">
       {/* Page Title with Ornament */}
-      <section className="pt-12 pb-8 bg-bep-cream">
+      <section className="pt-12 pb-8 bg-bep-cream animate-fade-in">
         <div className="bh-container text-center">
           <h1 className="menu-page-title">Bếp Huế Menu</h1>
           <div className="bh-section-underline mt-4" />
@@ -63,7 +63,7 @@ export default function MenuPage() {
       </section>
 
       {/* Category Tabs - top style like mockup */}
-      <section className="bg-bep-cream">
+      <section className="bg-bep-cream animate-fade-in-delay-2">
         <div className="bh-container">
           <div className="flex flex-wrap justify-center gap-2 md:gap-4">
             {categories
@@ -86,7 +86,7 @@ export default function MenuPage() {
 
       {/* Featured Dishes Section - "MÓN ĐẶC BIỆT" */}
       {selectedCategory === "all" && (
-        <section className="py-7 bg-bep-cream">
+        <section className="py-7 bg-bep-cream animate-fade-in-delay-1">
           <div className="bh-container">
             {/* Featured Badge Header */}
             <div className="text-center mb-10">
