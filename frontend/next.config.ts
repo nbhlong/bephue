@@ -6,6 +6,9 @@ const nextConfig = {
   // Enable standalone output for Docker
   output: "standalone",
 
+  // Disable source maps in production to reduce build size
+  productionBrowserSourceMaps: false,
+
   // Image optimization
   images: {
     // Avoid Next.js blocking private IPs (dev Strapi on localhost) by disabling optimization in that case
@@ -53,10 +56,18 @@ const nextConfig = {
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
 
+  // Compiler optimizations
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+
   // Experimental features (optional)
   experimental: {
     // Improve build performance
     optimizeCss: true,
+    // Optimize package imports
+    optimizePackageImports: ["react-icons", "framer-motion"],
   },
 };
 

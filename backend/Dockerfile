@@ -10,8 +10,8 @@ WORKDIR /opt/app
 # Copy package files
 COPY package.json package-lock.json* ./
 
-# Install dependencies
-RUN npm ci --omit=dev
+# Install ALL dependencies (including dev deps needed for build)
+RUN npm ci
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -22,7 +22,14 @@ COPY . .
 
 # Build Strapi admin panel
 ENV NODE_ENV=production
-RUN npm run build
+RUN npm run build && \
+  # Remove devDependencies to reduce image size
+  npm prune --omit=dev && \
+  # Clean up build cache and temp files
+  rm -rf .cache \
+  .strapi-updater.json \
+  *.log \
+  node_modules/.cache
 
 # Production image
 FROM base AS runner
@@ -34,7 +41,8 @@ ENV NODE_ENV=production
 RUN addgroup --system --gid 1001 nodejs && \
   adduser --system --uid 1001 strapi
 
-# Copy built application
+# Copy built application (already cleaned in builder stage)
+# Copying everything is safer for Strapi as build output structure can vary
 COPY --from=builder --chown=strapi:nodejs /opt/app ./
 
 # Expose Strapi port
