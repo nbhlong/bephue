@@ -15,7 +15,7 @@ This document provides context for Claude Code (AI assistant) to help with devel
 
 ```
 Frontend (Next.js) ←→ REST API ←→ Backend (Strapi CMS)
-     Port 3000                        Port 1337
+     Port 3000                        Port 1338
 ```
 
 ### Frontend Stack
@@ -302,8 +302,8 @@ cd backend && npm install [package]
 ## 🔗 Important Links
 
 - **Frontend Dev:** http://localhost:3000
-- **Backend Admin:** http://localhost:1337/admin
-- **API Docs:** http://localhost:1337/documentation
+- **Backend Admin:** http://localhost:1338/admin
+- **API Docs:** http://localhost:1338/documentation
 - **Design Reference:** https://sushimasa.vn/
 
 ## 📞 Project Context

@@ -1,6 +1,6 @@
 # backend/Dockerfile - Strapi CMS
 
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -38,14 +38,14 @@ RUN addgroup --system --gid 1001 nodejs && \
 COPY --from=builder --chown=strapi:nodejs /opt/app ./
 
 # Expose Strapi port
-EXPOSE 1337
+EXPOSE 1338
 
 # Set user
 USER strapi
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:1337/admin', (r) => {process.exit([200, 403, 404].includes(r.statusCode) ? 0 : 1)})"
+  CMD node -e "require('http').get('http://localhost:1338/admin', (r) => {process.exit([200, 403, 404].includes(r.statusCode) ? 0 : 1)})"
 
 # Start Strapi
 CMD ["npm", "run", "start"]
